@@ -9,4 +9,9 @@ class Restaurante extends Model
 {
     use HasFactory;
     protected $table = 'restaurante'; 
+
+    public function restByLocation($idLocation) {
+        $rest = Restaurante::where('idUbicacion',$idLocation)->get();
+        return $rest[0];
+    }
 }

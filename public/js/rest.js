@@ -1,11 +1,15 @@
 $('#btnHideRest').click(function (e) { 
     $('#divRest').css('left', '-35%');
-    $('#divRest').css('transition', '1s');
+    let ms = myMap.markers.find((m) => m.selected);
+    ms.selected = false;
+    ms.marker.setIcon(urlIcon);
 });
 $('#optionsRest button').click(function (e) {     
     let numOption = $(this).val();
     let optionSelected = $(this).text();
     $('#detalleOptionRest h1').text(optionSelected);
     $('.fondoModal').css('bottom', 0);
-    $('.fondoModal').css('transition', '0.7s');
+});
+$('#btnHideDetalle').click(function (e) { 
+    $('.fondoModal').css('bottom', '-100vh');
 });

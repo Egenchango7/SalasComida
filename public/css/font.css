@@ -1,0 +1,14 @@
+@media screen and (max-width: 1279px) {
+    html {
+        font-size: 12px;
+    }
+}
+h1 {
+    font-size: 2.5rem;
+}
+h2 {
+    font-size: 1.8rem;
+}
+h3 {
+    font-size: 1.4rem;
+}

@@ -1,3 +1,7 @@
+#symbolSoles {
+    font-size: 3.3rem;
+    margin: 0;
+}
 #btnOfertas {
     top: 0;
     right: 0;
@@ -6,6 +10,7 @@
     text-align: center;
     background-color: #7cb342;
     color: white;
+    font-size: 1.3rem;
     cursor: pointer;
     transition: 0.7s;
 }
@@ -13,14 +18,11 @@
     background-color: green;
     transition: 0.7s;
 }
-#btnOfertas div p {
-    font-size: 2.5rem;
-    margin: 0;
-}
 #divOfertas {
     position: absolute;
     width: 22%;
-    right: -25%;
+    right: 0;
     top: 25vh;
     height: 65vh;
+    transition: 1s;
 }

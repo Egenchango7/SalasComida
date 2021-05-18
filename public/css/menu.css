@@ -1,0 +1,48 @@
+@media screen and (max-width: 1279px) {
+    .heightMenu {
+        height: 32vh;    
+    }
+}
+@media screen and (min-width: 1280px) {
+    .heightMenu {
+        height: 28vh;    
+    }
+}
+.itemMenu {
+    padding-bottom: 10px;
+}
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: lightgray;
+}
+#divMenu {
+    position: relative;
+}
+#divMenu h2 {
+    padding: 10px 0px 10px 0px;
+}
+#precioMenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0px 10px;
+    background-color: #7cb342;
+}
+#tableMenu {
+    margin-top: 10px;
+    border-radius: 0;
+    overflow-y: scroll;
+}
+#tableMenu td {
+    font-size: 1.4rem;
+}
+#scrollBar {
+    position: absolute;
+    width: 10px;
+    right: 0;
+    background-color: white;
+    transition: .5s;
+}

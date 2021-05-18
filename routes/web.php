@@ -14,7 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('map');
-});
+Route::get('/', UbicacionController::class);
 Route::get('/locations', [UbicacionController::class, 'listLocations']);

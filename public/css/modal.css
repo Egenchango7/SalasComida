@@ -27,9 +27,8 @@
     background-color: white;
     padding: 30px;
     box-sizing: border-box;
-    /* transition: 1s; */
 }
 #btnHideDetalle {
-    top: -5px;
+    top: 0;
     right: 0;
 }
