@@ -17,4 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('map');
 });
+Route::get('/', function () {
+    return view('login');
+});
 Route::get('/locations', [UbicacionController::class, 'listLocations']);
