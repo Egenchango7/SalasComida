@@ -1,6 +1,6 @@
-$('#tableMenu').hover(function () {
-    $('#scrollBar').css('opacity', 0);
+$('.tableMenu').hover(function () {
+    $('.scrollBar').css('opacity', 0);
     }, function () {
-        $('#scrollBar').css('opacity', 1);
+        $('.scrollBar').css('opacity', 1);
     }
 );

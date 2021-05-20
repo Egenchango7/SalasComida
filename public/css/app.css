@@ -9,7 +9,17 @@ body {
 div {
     border-radius: 25px;
 }
-input:focus {
+table {
+    border-collapse: collapse;
+}
+input, select {
+    border: 0px;
+    border-bottom: 1px solid lightgray;
+    transition: .5s;
+}
+input:focus, select:focus {
+    border-bottom: 1px solid #7cb342;
+    transition: .5s;
     outline: none;
 }
 .flotante {

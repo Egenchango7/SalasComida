@@ -15,20 +15,12 @@
     height: 50px;
     cursor: pointer;
 }
-#detalleOptionRest {
-    width: 70%;
-    height: 70vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    background-color: white;
-    padding: 30px;
-    box-sizing: border-box;
+.divColumn {
+    width: 48%;
 }
-#btnHideDetalle {
-    top: 0;
-    right: 0;
+#division {
+    position: absolute;
+    left: 50%;
+    height: 75%;
+    border-left: 2px solid lightgray;
 }
