@@ -20,7 +20,7 @@ class UbicacionController extends Controller
                 'id' => $u['id'],
                 'lat' => $u['latitud'],
                 'lng' => $u['longitud'],
-                'rest' => $rest->restByLocation($u['id'])
+                'rest' => $rest->getById($u['idRest'])
             );
             array_push($locations, $l);
         }

@@ -1,0 +1,42 @@
+#detalleOptionRest {
+    width: 70%;
+    height: 70vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background-color: white;
+    padding: 30px;
+    box-sizing: border-box;
+}
+#detalleOptionRest p {
+    margin: 15px 0px;
+}
+#permisos {
+    position: relative;
+}
+#permisos span {
+    position: absolute;
+    right: -3rem;
+    top: -10px;
+    font-size: 2.5rem;
+}
+#btnHideDetalle {
+    top: 5px;
+    right: 5px;
+}
+#detalleLeft {
+    float: left;
+}
+#detalleRight {
+    float: right;
+}
+#detalleRight .material-icons-round {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font-size: 4.5rem;
+    color: #ea4335;
+}

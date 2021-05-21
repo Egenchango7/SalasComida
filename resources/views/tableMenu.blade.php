@@ -1,5 +1,15 @@
 <div id="" class="divMenu">
-    <?=$titleMenu?>
+    @if ($titleMenu == 'detalle')
+        <h2>Menú 
+            <select name="tipoMenu" id="tipoMenu">
+                <option value="1">Ejecutivo</option>
+                <option value="2">Marino</option>
+                <option value="3">Vegano</option>
+            </select>
+        </h2>
+    @else
+        <h2>Menú del día</h2>
+    @endif
     <div id="" class="precioMenu">
         <h2>S/ 00.00</h2>
     </div>
