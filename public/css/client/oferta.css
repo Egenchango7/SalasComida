@@ -20,9 +20,41 @@
 }
 #divOfertas {
     position: absolute;
-    width: 22%;
+    width: 24%;
     right: 0;
     top: 25vh;
     height: 65vh;
     transition: 1s;
+}
+#contentOfertas {
+    margin: 1.8rem .7rem;
+    height: 59vh;
+    overflow-y: scroll;
+}
+#contentOfertas > div {
+    margin: 0px 10px 15px 10px;
+    padding: 15px;
+    border: 1px solid #7cb342;
+}
+#contentOfertas table {
+    width: 100%;
+}
+#contentOfertas h3 {
+    padding-top: 3px;
+}
+#contentOfertas tr:last-child td {
+    text-align: right;
+    padding-top: 5px;
+}
+#contentOfertas button {
+    font-size: 1.1rem;
+    padding: 10px;
+    border-radius: .8rem;
+    border: none;
+}
+#contentOfertas .scrollBar {
+    height: 58vh;
+    right: -10px;
+    border: 0;
+    padding: 0;
 }

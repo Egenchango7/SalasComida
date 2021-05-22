@@ -31,6 +31,7 @@ class Maps {
             $('#infoRest p').text(rest.desc);
             marker.setIcon(biggerIcon);
             myMap.markers.find((m) => m.id == location.id).selected = true;
+            myMap.restSelected = rest;
             let anotherSelected = myMap.markers.find((m) => m.selected && m.id != location.id);
             if (anotherSelected) {
                 anotherSelected.marker.setIcon(urlIcon);

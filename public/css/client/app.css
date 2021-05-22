@@ -7,7 +7,7 @@ body {
     overflow:hidden;
 }
 div {
-    border-radius: 25px;
+    border-radius: 1.5rem;
 }
 table {
     border-collapse: collapse;
@@ -43,4 +43,21 @@ input:focus, select:focus {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.scrollBar {
+    position: absolute;
+    width: 20px;
+    right: 0;
+    background-color: white;
+    transition: .5s;
+}
+.btnRed {
+    background-color: #ea4335;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.btnRed:hover {
+    background-color: red;
+    transition: 0.5s;
 }

@@ -24,6 +24,7 @@ $('#optionsRest button').on('click', function (e) {
     $('.fondoModal').css('bottom', 0);
     $('#' + divShow).css('display','block');
     $('#detalleRight .material-icons-round').text(iconShow);
+    // SET DATA REST...
     setTimeout(() => {
             $('#optionsRest button').css('z-index', 2);
     }, 700);

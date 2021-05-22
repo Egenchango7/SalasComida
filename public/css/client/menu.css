@@ -2,10 +2,16 @@
     .heightMenu {
         height: 34vh;    
     }
+    #detalleMenu .heightMenu {
+        height: 41vh;    
+    }
 }
 @media screen and (min-width: 1280px) {
     .heightMenu {
         height: 30vh;
+    }
+    #detalleMenu .heightMenu {
+        height: 43vh;    
     }
 }
 .divMenu {
@@ -25,6 +31,7 @@
 .tableMenu {
     margin-top: 7px;
     border-radius: 0;
+    overflow-y: scroll;
 }
 .tableMenu td {
     padding-top: 0;
@@ -33,13 +40,6 @@
     font-size: 1.4rem;
     padding: 15px 0px;
 }
-.scrollBar {
-    position: absolute;
-    width: 10px;
-    right: 0;
-    background-color: white;
-    transition: .5s;
-}
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -47,11 +47,17 @@
     border-radius: 3px;
     background-color: lightgray;
 }
-#infoRest .tableMenu {
-    overflow-y: scroll;
-}
 #tipoMenu {
     width: 10rem;
     font-size: 1.8rem;
     font-weight: bold;
+}
+#precioReducido {
+    background-color: #ea4335;
+    top: 4rem;
+    z-index: 1;
+    color: white;
+}
+#precioReducido h2 {
+    font-size: 1.2rem;
 }

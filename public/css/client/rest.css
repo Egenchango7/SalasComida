@@ -6,12 +6,6 @@
         display: none;
     }
 }
-.btnRed {
-    background-color: #ea4335;
-    color: white;
-    transition: 0.5s;
-    cursor: pointer;
-}
 #divRest {
     height: 90vh;
     width: 28%;
@@ -19,14 +13,10 @@
     left: -35%;
     transition: 1s;
 }
-#contentRest {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
 #btnHideRest {
     right: -15px;
     top: -15px;
+    border-radius: 25px;
 }
 #divImgRest {
     width: 100%;
@@ -61,13 +51,9 @@
     border: none;
     font-size: 1.15rem;
 }
-#optionsRest button:hover {
-    background-color: red;
-    transition: 0.5s;
-}
 #optionsRest button:first-child {
-    border-radius: 0px 0px 0px 25px;
+    border-radius: 0px 0px 0px 1.5rem;
 }
 #optionsRest button:last-child {
-    border-radius: 0px 0px 25px 0px;
+    border-radius: 0px 0px 1.5rem 0px;
 }

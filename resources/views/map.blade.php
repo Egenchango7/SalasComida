@@ -7,18 +7,16 @@
         <input type="text" name="txtBuscador" id="txtBuscador"/>
     </div>
     <div id="divRest" class="flotante shadowRight">
-        <div id="contentRest">
-            <div id="btnHideRest" class="flex btnHide btnRed"> 
-                <span class="material-icons-round">close</span>
-            </div>
-            <div id="divImgRest">
-                <img src="{{asset('src/fondoLogin.jpg')}}" alt="imgRest">
-            </div>
-            <div id="infoRest">
-                <h1>[Restaurante]</h1>
-                <p>[Descripcion]Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aut suscipit possimus ut ab! Sed facilis eum eius harum debitis, recusandae neque ex quasi expedita, illum perferendis delectus commodi mollitia!</p>
-                @include('tableMenu',['titleMenu' => 'principal'])
-            </div>
+        <div id="btnHideRest" class="flex btnHide btnRed"> 
+            <span class="material-icons-round">close</span>
+        </div>
+        <div id="divImgRest">
+            <img src="{{asset('src/fondoLogin.jpg')}}" alt="imgRest">
+        </div>
+        <div id="infoRest">
+            <h1>[Restaurante]</h1>
+            <p>[Descripcion]Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aut suscipit possimus ut ab! Sed facilis eum eius harum debitis, recusandae neque ex quasi expedita, illum perferendis delectus commodi mollitia!</p>
+            @include('tableMenu',['titleMenu' => 'principal'])
         </div>
         <div id="optionsRest" class="flex">
             <button value="1" class="btnRed">Ver detalle</button>
@@ -62,6 +60,60 @@
         </div>
     </div>
     <div id="divOfertas" class="flotante shadowLeft">
-        
+        <div id="contentOfertas">
+            <div id="" class="scrollBar"></div>
+            <div>
+                <table>
+                    <tr>
+                        <td>Menú <b>[tipoMenu]</b> en oferta: <br/><h3>S/ 00.00</h3></td>
+                    </tr>
+                    <tr>
+                        <td><b>Restaurante:</b> <br/>[Restaurante]</td>
+                    </tr>
+                    <tr>
+                        <td><button class="btnRed">Ver más</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td>Menú <b>[tipoMenu]</b> en oferta: <h3>S/ 00.00</h3></td>
+                    </tr>
+                    <tr>
+                        <td><b>Restaurante:</b> [Restaurante]</td>
+                    </tr>
+                    <tr>
+                        <td><button class="btnRed">Ver más</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td>Menú <b>[tipoMenu]</b> en oferta: <h3>S/ 00.00</h3></td>
+                    </tr>
+                    <tr>
+                        <td><b>Restaurante:</b> [Restaurante]</td>
+                    </tr>
+                    <tr>
+                        <td><button class="btnRed">Ver más</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td>Menú <b>[tipoMenu]</b> en oferta: <h3>S/ 00.00</h3></td>
+                    </tr>
+                    <tr>
+                        <td><b>Restaurante:</b> [Restaurante]</td>
+                    </tr>
+                    <tr>
+                        <td><button class="btnRed">Ver más</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 @include('layout/script')

@@ -1,6 +1,6 @@
 #detalleOptionRest {
-    width: 70%;
-    height: 70vh;
+    width: 75%;
+    height: 74vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -10,6 +10,9 @@
     background-color: white;
     padding: 30px;
     box-sizing: border-box;
+}
+#detalleOptionRest .precioMenu {
+    right: 15px;
 }
 #detalleOptionRest p {
     margin: 15px 0px;
