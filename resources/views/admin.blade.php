@@ -1,4 +1,4 @@
-@include('layout/head', ['titlePage' => 'Gestion de Salas de comida'])
+@include('layout/head', ['titlePage' => 'Gestion de Salas de comida - SWOA'])
 @include('layout/headAdmin')
 </head>
 
@@ -12,46 +12,30 @@
         <div class="row tm-main-row">
 
             <!-- Sidebar -->
-            <div id="tmSideBar" class="col-xl-3 col-lg-4 col-md-12 col-sm-12 sidebar">
+            <div id="tmSideBar" class="shadowRight col-xl-3 col-lg-4 col-md-12 col-sm-12 sidebar flex">
 
                 <button id="tmMainNavToggle" class="menu-icon">&#9776;</button>
 
-                <div class="inner">
+                <div>
                     <nav id="tmMainNav" class="tm-main-nav">
-                        <ul>
-                            <li>
-                                <a href="" id="tmNavLink1" data-page="#tm-section-1">
-
-                                    <span>Salas de Comida</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" id="tmNavLink1" data-page="#tm-section-2">
-
-                                    <span>Menú</span>
-                                    
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" id="tmNavLink1" data-page="#tm-section-3">
-
-                                    <span>Platos</span>
-
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" id="tmNavLink1" data-page="#tm-section-4">
-
-                                    <span>Usuarios</span>
-                                    <div>
-                                </a><input type="submit" value="< Salir">
+                        <a href="" id="tmNavLink1" data-page="#tm-section-1">
+                            <div class="listDiv"><h2>Salas de Comida</h2></div>
+                         </a>
+                        <a href="" id="tmNavLink1" data-page="#tm-section-2">
+                            <div class="listDiv"><h2>Menús</h2></div>
+                        </a>
+                        <a href="" id="tmNavLink1" data-page="#tm-section-3">
+                            <div class="listDiv"><h2>Platos</h2></div>
+                        </a>
+                        <a href="" id="tmNavLink1" data-page="#tm-section-4">
+                            <div class="listDiv"><h2>Usuarios</h2></div>
+                        </a>
+                    </nav>
                 </div>
-                </li>
-                </ul>
-                </nav>
             </div>
-        </div>
-
+            <button id="btnSalir" class="btnRed flex">
+                <span class="material-icons-round">arrow_back_ios</span> <h3>Salir</h3>
+            </button>
         <div class="tm-content">
             <!-- section 1 -->
             <section id="tm-section-1" class="tm-section">
@@ -108,6 +92,11 @@
                                 </h3>
                             </div>
                             @include('tables/tableMenu', ['titleMenu' => 'detalle'])
+                        </div>
+                        <div class="btnAdd flex">
+                            <span class="material-icons-round">
+                                add_circle
+                            </span>
                         </div>
                     </div>
                 </div>

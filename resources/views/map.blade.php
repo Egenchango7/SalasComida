@@ -1,4 +1,4 @@
-@include('layout/head')
+@include('layout/head', ['titlePage' => 'SWOA'])
 @include('layout/headClient')
 </head>
 <body>

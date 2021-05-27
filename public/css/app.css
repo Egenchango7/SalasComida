@@ -57,13 +57,25 @@ input:focus, select:focus {
     background-color: #ea4335;
     /* background: linear-gradient(130deg, rgba(234,67,53,1) 40%, rgba(239,1,7,1) 100%); */
     color: white;
-    transition: 0.5s;
+    border: 0;
+    transition: all .5s;
     cursor: pointer;
 }
 .btnRed:hover {
     background-color: #EF0107;
     /* background: linear-gradient(130deg, rgba(239,1,7,1) 40%, rgba(234,67,53,1) 100%); */
-    transition: 0.5s;
+}
+.listDiv {
+    margin: 0px 10px 15px 10px;
+    padding: 15px;
+    border: 2px solid #7cb342;
+    transition: all .5s;
+    box-sizing: border-box;
+}
+.listDiv:hover {
+    background-color: #7cb342;
+    margin: 0px 5px 15px 5px;
+    padding: 20px 15px;
 }
 #logoSWOA {
     top: 0;

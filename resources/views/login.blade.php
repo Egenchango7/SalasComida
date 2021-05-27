@@ -1,4 +1,4 @@
-@include('layout/head')
+@include('layout/head', ['titlePage' => 'Login - SWOA'])
 <link href="{{ asset('css/admin/login.css') }}" rel="stylesheet">
 
 </head>

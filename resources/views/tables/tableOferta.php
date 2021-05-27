@@ -1,4 +1,4 @@
-<div class="shadowRight">
+<div class="listDiv shadowRight">
     <table>
         <tr>
             <td colspan="2">Oferta <?=$o['id']?> menú <b>[tipoMenu]</b>: <br />
