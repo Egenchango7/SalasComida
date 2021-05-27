@@ -15,6 +15,7 @@ table {
 input, select {
     border: 0px;
     border-bottom: 1px solid lightgray;
+    background: transparent;
     transition: .5s;
 }
 input:focus, select:focus {
@@ -46,18 +47,34 @@ input:focus, select:focus {
 }
 .scrollBar {
     position: absolute;
-    width: 20px;
+    width: 17px;
     right: 0;
     background-color: white;
     transition: .5s;
+    border-radius: 0;
 }
 .btnRed {
     background-color: #ea4335;
+    /* background: linear-gradient(130deg, rgba(234,67,53,1) 40%, rgba(239,1,7,1) 100%); */
     color: white;
     transition: 0.5s;
     cursor: pointer;
 }
 .btnRed:hover {
-    background-color: red;
+    background-color: #EF0107;
+    /* background: linear-gradient(130deg, rgba(239,1,7,1) 40%, rgba(234,67,53,1) 100%); */
     transition: 0.5s;
+}
+#logoSWOA {
+    top: 0;
+    right: 2.5%;
+    width: 16%;
+    padding: 1.2rem;
+    border-radius: 50%;
+    background-color: #7cb342;
+}
+#logoSWOA img {
+    width: 100%;
+    border-radius: 50%;
+    background-color: white;
 }

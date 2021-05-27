@@ -1,7 +1,7 @@
 <div id="" class="divMenu">
     @if ($titleMenu == 'detalle')
         <h2>Menú 
-            <select name="tipoMenu" id="tipoMenu">
+            <select name="tipoMenu" id="tipoMenu" class="select">
                 {{-- CAMBIAR POR CONSULTA BD --}}
                 <option value="1">Ejecutivo</option>
                 <option value="2">Marino</option>

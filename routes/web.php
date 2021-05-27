@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', UbicacionController::class);
 Route::get('/map', UbicacionController::class);
-Route::get('/admin', function (){
+Route::get('/login', function (){
     return view('login');
+});
+Route::get('/admin', function () {
+    return view('admin');
 });
 Route::get('/locations', [UbicacionController::class, 'listLocations']);

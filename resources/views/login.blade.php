@@ -1,50 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Login</title>
-    <link href="http://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Round" rel="stylesheet">
-    <link href="{{asset('css/loginStyle.css')}}" rel="stylesheet">
-    
-  
-  </head>
-  <body>
-  
-        <div id="divImgRest">
-            <img src="{{asset('src/fondoLogin1.jpg')}}" alt="imgRest">  
-        </div>  
+@include('layout/head')
+<link href="{{ asset('css/admin/login.css') }}" rel="stylesheet">
 
-        <div id="logo">
-            <img src="{{asset('src/logo1.png')}}" class="logo" alt="imgRest">          
-        </div>  
-            
-  <div id="map"></div>
+</head>
 
-    <div class="login-box">      
-    <h1>Admin</h1>
-    <h1>Salas de Comida</h1>
-      <form action="//"> 
-          
-        <label for="username">Username</label>
-        <input type="text" placeholder="Enter Username" required name="usuario">
-        
-        <label for="password">Password</label>
-        <input type="password" placeholder="Enter Password" required name="passw">
-        
-        <input type="submit" value="Log In" >
+<body>
 
-      </form>
+    <div id="mapaLogin">
+        <img src="{{ asset('src/fondoMapaDifuminado.png') }}" alt="fondoLogin">
+        <img src="{{ asset('src/markerDefaultBig.png') }}" alt="marker" id="marker">
     </div>
-   
-  </body>
-  {{-- <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script> --}}
-<script src="{{asset('js/map.js')}}"></script>
 
-<script
-       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqWsbYot3tY_QyJoDlmsPjlTyBXY5yBzM&callback=initMap">
-</script>
-<script>
-    console.log(myMap);
-</script>
+    <div id="divRight">
+        <img src="{{ asset('src/fondoLoginLogo.png') }}" alt="fondoLogin">
+    </div>
+
+    <div class="login-box">
+        <div>
+            <h3>Sitio Web de Ofertas de Alimentos</h3>
+            <form action="">
+
+                <label for="username">Username</label>
+                <input type="text" name="usuario" class="txt" required>
+
+                <label for="password">Password</label>
+                <input type="password" name="passw" class="txt" required>
+
+                <input type="button" value="Ingresar">
+
+            </form>
+        </div>
+    </div>
+
+</body>
+@include('layout/script')
 </html>

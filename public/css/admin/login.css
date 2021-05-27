@@ -1,0 +1,77 @@
+div:not(.login-box) {
+    border-radius: 0;
+}
+img {
+    height: 100vh;
+}
+input[type="button"] {
+    border: none;
+    background-color: #7cb342;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 1.2rem;
+    margin-top: 0.7rem;
+}
+input[type="button"]:hover {
+    cursor: pointer;
+    background-color: green;
+}
+.login-box {
+    width: 22%;
+    height: 50vh;
+    /* background: rgba(236, 229, 229, 0.582); */
+    background: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    box-sizing: border-box;
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 4rem;
+}
+.login-box h3 {
+    padding-bottom: 1.5rem;
+    text-align: center;
+}
+.login-box label {
+    font-weight: bold;
+}
+.login-box input {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    height: 2.2rem;
+}
+.txt {
+    background: transparent;
+    font-size: 1.1rem;
+}
+#divRight {
+    width: 73%;
+    height: 100vh;
+    position: relative;
+    float: right;
+    border-left: 1rem solid #ea4335;
+}
+#mapaLogin {
+    width: 24%;
+    height: 100vh;
+    float: left;
+    position: relative;
+    box-sizing: border-box;
+}
+#marker {
+    position: absolute;
+    height: 20vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+    transition: all .5s;
+}
+#marker:hover {
+    transform: scale(1.2, 1.2);
+}

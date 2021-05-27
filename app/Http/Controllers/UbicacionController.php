@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class UbicacionController extends Controller
 {
     public function __invoke() {
-        return view('map');
+        $ofertas = $this->getOfertasDestacadas(date('Y-m-d'));
+        return view('map', compact('ofertas'));
     }
     public function listLocations() {
         $ubicaciones = Ubicacion::all();
@@ -25,5 +26,14 @@ class UbicacionController extends Controller
             array_push($locations, $l);
         }
         echo json_encode($locations);
+    }
+    public function getOfertasDestacadas($fecha)
+    {
+        $ofertas = array();
+        for ($i=0; $i < 10; $i++) { 
+            $o = array('id' => $i);
+            array_push($ofertas,$o);
+        }
+        return $ofertas;
     }
 }

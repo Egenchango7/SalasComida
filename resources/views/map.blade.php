@@ -1,4 +1,5 @@
 @include('layout/head')
+@include('layout/headClient')
 </head>
 <body>
     <div id="map"></div>
@@ -16,7 +17,7 @@
         <div id="infoRest">
             <h1>[Restaurante]</h1>
             <p>[Descripcion]Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aut suscipit possimus ut ab! Sed facilis eum eius harum debitis, recusandae neque ex quasi expedita, illum perferendis delectus commodi mollitia!</p>
-            @include('tableMenu',['titleMenu' => 'principal'])
+            @include('tables/tableMenu',['titleMenu' => 'principal'])
         </div>
         <div id="optionsRest" class="flex">
             <button value="1" class="btnRed">Ver detalle</button>
@@ -41,79 +42,29 @@
             <div id="division"></div>
             <div id="detalleRight" class="divColumn">
                 <div id="detalleMenu">
-                    @include('tableMenu', ['titleMenu' => 'detalle'])
+                    @include('tables/tableMenu', ['titleMenu' => 'detalle'])
                 </div>
                 <div id="detallePlatos" class="detallePlatos">
-                    @include('tablePlatos')
+                    @include('tables/tablePlatos')
                 </div>
                 <div id="detallePostres" class="detallePlatos">
-                    @include('tablePlatos')
+                    @include('tables/tablePlatos')
                 </div>
                 <span class="material-icons-round"></span>
             </div>
         </div>
     </div>
-    <div id="btnOfertas" class="flotante shadowLeft flex">
-        <div>
-            <p id="symbolSoles">S/.</p>
-            Ofertas<br/>destacadas
-        </div>
+    <div id="logoSWOA" class="flotante shadowLeft">
+        <img src="{{asset('src/logoSWOA_transparentO.png')}}" alt="imgRest">
     </div>
     <div id="divOfertas" class="flotante shadowLeft">
         <div id="contentOfertas">
             <div id="" class="scrollBar"></div>
-            <div>
-                <table>
-                    <tr>
-                        <td>Menú <b>[tipoMenu]</b> en oferta: <br/><h3>S/ 00.00</h3></td>
-                    </tr>
-                    <tr>
-                        <td><b>Restaurante:</b> <br/>[Restaurante]</td>
-                    </tr>
-                    <tr>
-                        <td><button class="btnRed">Ver más</button></td>
-                    </tr>
-                </table>
-            </div>
-            <div>
-                <table>
-                    <tr>
-                        <td>Menú <b>[tipoMenu]</b> en oferta: <h3>S/ 00.00</h3></td>
-                    </tr>
-                    <tr>
-                        <td><b>Restaurante:</b> [Restaurante]</td>
-                    </tr>
-                    <tr>
-                        <td><button class="btnRed">Ver más</button></td>
-                    </tr>
-                </table>
-            </div>
-            <div>
-                <table>
-                    <tr>
-                        <td>Menú <b>[tipoMenu]</b> en oferta: <h3>S/ 00.00</h3></td>
-                    </tr>
-                    <tr>
-                        <td><b>Restaurante:</b> [Restaurante]</td>
-                    </tr>
-                    <tr>
-                        <td><button class="btnRed">Ver más</button></td>
-                    </tr>
-                </table>
-            </div>
-            <div>
-                <table>
-                    <tr>
-                        <td>Menú <b>[tipoMenu]</b> en oferta: <h3>S/ 00.00</h3></td>
-                    </tr>
-                    <tr>
-                        <td><b>Restaurante:</b> [Restaurante]</td>
-                    </tr>
-                    <tr>
-                        <td><button class="btnRed">Ver más</button></td>
-                    </tr>
-                </table>
-            </div>
+            @foreach ($ofertas as $o)
+                @include('tables/tableOferta', ['oferta' => $o])
+            @endforeach
         </div>
     </div>
 @include('layout/script')
+@include('layout/scriptClient')
+</html>
