@@ -39,7 +39,7 @@
                     {{-- <span class="material-icons-round" style="color: #ea4335">dangerous</span> --}}
                 </span>
             </div>
-            <div id="division"></div>
+            <div class="division"></div>
             <div id="detalleRight" class="divColumn">
                 <div id="detalleMenu">
                     @include('tables/tableMenu', ['titleMenu' => 'detalle'])

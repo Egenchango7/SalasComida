@@ -9,11 +9,3 @@ const biggerIcon = isMediumWindow ?
     'https://i.postimg.cc/QMn0XyrT/marker-Defaul-100x125.png' :
     // 'https://i.postimg.cc/Dfc8LDBk/marker-Selected.png'; 
     'https://i.postimg.cc/65GCkjzh/marker-Rest-White.png';
-const hoverScroll = (div) => {
-    $(div).hover(function () {
-        $(div).find('.scrollBar').css('opacity', 0);
-    }, function () {
-        $(div).find('.scrollBar').css('opacity', 1);
-    }
-    );
-}

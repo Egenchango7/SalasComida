@@ -1,7 +1,8 @@
 <div id="" class="divMenu">
-    @if ($titleMenu == 'detalle')
+    <? $isDetalle = $titleMenu == 'detalle' || $titleMenu == 'detalleAdmin'; ?>
+    @if ($isDetalle)
         <h2>Menú 
-            <select name="tipoMenu" id="tipoMenu" class="select">
+            <select name="tipoMenu" id="" class="tipoMenu">
                 {{-- CAMBIAR POR CONSULTA BD --}}
                 <option value="1">Ejecutivo</option>
                 <option value="2">Marino</option>
@@ -14,13 +15,15 @@
     <div id="" class="precioMenu">
         <h2>S/ 00.00</h2>
     </div>
-    @if ($titleMenu == 'detalle')
-        <div id="precioReducido" class="precioMenu">
+    @if ($isDetalle)
+        <div id="" class="precioMenu precioReducido">
             <h2>Normal: S/ 00.00</h2>
         </div>
     @endif
     <div id="" class="tableMenu heightMenu">
-        <div id="" class="scrollBar heightMenu"></div>
+        @if ($titleMenu != 'detalleAdmin')
+            <div id="" class="scrollBar heightMenu"></div>        
+        @endif
         <table>
             <tr>
                 <td>

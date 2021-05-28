@@ -31,7 +31,7 @@
 .tableMenu {
     margin-top: 7px;
     border-radius: 0;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 .tableMenu .scrollBar {
     top: 3.9rem;
@@ -43,6 +43,19 @@
     font-size: 1.4rem;
     padding: 15px 0px;
 }
+.tipoMenu {
+    width: 10rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.precioReducido {
+    background-color: #ea4335;
+    top: 4rem;
+    z-index: 1;
+}
+.precioReducido h2 {
+    font-size: 1.2rem;
+}
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -50,16 +63,6 @@
     border-radius: 3px;
     background-color: lightgray;
 }
-#tipoMenu {
-    width: 10rem;
-    font-size: 1.8rem;
-    font-weight: bold;
-}
-#precioReducido {
-    background-color: #ea4335;
-    top: 4rem;
-    z-index: 1;
-}
-#precioReducido h2 {
-    font-size: 1.2rem;
+#formNewMenu p {
+    /* line-height: 2rem; */
 }
