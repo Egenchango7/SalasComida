@@ -1,9 +1,9 @@
 @media screen and (max-width: 1279px) {
     .heightMenu {
-        height: 34vh;
+        height: 36vh;
     }
     #detalleMenu .heightMenu {
-        height: 41vh;
+        height: 47vh;
     }
 }
 @media screen and (min-width: 1280px) {
@@ -11,37 +11,37 @@
         height: 30vh;
     }
     #detalleMenu .heightMenu {
-        height: 43vh;
+        height: 49vh;
     }
 }
 .divMenu {
     position: relative;
     margin-top: 5px;
 }
+.divMenu .scrollBar {
+    top: 3rem;
+}
 .divMenu h2 {
-    padding: 7px 0px 7px 0px;
+    padding: .5rem 0;
 }
 .precioMenu {
     position: absolute;
     top: 0;
     right: 0;
-    padding: 0px 10px;
+    padding: 0 .7rem;
     background-color: #7cb342;
 }
 .tableMenu {
-    margin-top: 7px;
+    margin-top: .5rem;
     border-radius: 0;
-    overflow-y: hidden;
-}
-.tableMenu .scrollBar {
-    top: 3.9rem;
+    overflow-y: scroll;
 }
 .tableMenu td {
-    padding-top: 0;
+    padding-top: 0 !important;
 }
 .itemMenu {
     font-size: 1.4rem;
-    padding: 15px 0px;
+    padding: 1rem 0px !important;
 }
 .tipoMenu {
     width: 10rem;
@@ -55,14 +55,4 @@
 }
 .precioReducido h2 {
     font-size: 1.2rem;
-}
-::-webkit-scrollbar {
-    width: 6px;
-}
-::-webkit-scrollbar-thumb {
-    border-radius: 3px;
-    background-color: lightgray;
-}
-#formNewMenu p {
-    /* line-height: 2rem; */
 }

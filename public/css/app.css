@@ -14,14 +14,20 @@ table {
 }
 input, select {
     border: 0px;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid gray;
     background: transparent;
-    transition: .5s;
+    transition: all .5s;
 }
 input:focus, select:focus {
     border-bottom: 1px solid #7cb342;
-    transition: .5s;
     outline: none;
+}
+button {
+    border: none;
+    padding: 0px .5rem;
+    outline: none;
+    cursor: pointer;
+    transition: all .5s;
 }
 .flotante {
     position: absolute;
@@ -47,11 +53,15 @@ input:focus, select:focus {
 }
 .scrollBar {
     position: absolute;
-    width: 17px;
     right: 0;
+    top: 0;
     background-color: white;
-    transition: .5s;
+    transition: all .5s;
     border-radius: 0;
+    height: 100%;
+    width: 6px;
+    padding: .6rem 0;
+    z-index: 1;
 }
 .btnRed {
     background-color: #ea4335;
@@ -66,16 +76,25 @@ input:focus, select:focus {
     /* background: linear-gradient(130deg, rgba(239,1,7,1) 40%, rgba(234,67,53,1) 100%); */
 }
 .listDiv {
-    margin: 0px 10px 15px 10px;
+    margin: 0 1.1rem 1.5rem 1.1rem;
     padding: 15px;
     border: 2px solid #7cb342;
     transition: all .5s;
-    box-sizing: border-box;
+    box-sizing: content-box;
+    background-color: white;
 }
 .listDiv:hover {
     background-color: #7cb342;
-    margin: 0px 5px 15px 5px;
-    padding: 20px 15px;
+    transform: scale(1.05);
+    /* margin: 0px 5px 15px 5px;
+    padding: 20px 15px; */
+}
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: lightgray;
 }
 #logoSWOA {
     top: 0;

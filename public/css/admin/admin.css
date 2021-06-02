@@ -2,33 +2,67 @@
 body {
 	font-size: 1.1rem;
 }
-
-/* button:focus { outline: none; } */
 p {
-    font-size: 1rem;
-    line-height: 2.2;
+    font-size: 1.3rem;
+    line-height: 2.5rem;
 }
-
 p:last-child { margin-bottom: 0; }
 
+input[type="button"] {
+  background-color: #7cb342;
+  color: white;
+  font-size: 1.3rem;
+  position: relative;
+  left: 250px;
+  margin-top: 10px;
+  border-radius: 1.5rem;
+  border: 0;
+  height: 3.3rem;
+  padding: .5rem 1rem;
+  transition: all .5s;
+  cursor: pointer;
+}
+input[type="button"]:hover {
+  cursor: pointer;
+  background-color: green;
+}
+td input[type="password"] {
+  width: 90%;
+}
+input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -1.5rem;
+  margin: auto;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+textarea {
+   width: 100%;
+    height: 15vh;
+}
+input[type="file"] {
+  display: none;
+}
 .tm-bg-transparent {
-    background-color: rgba(255, 255, 255, 0.5);
-    width: 1350px;
-    height: 780px;
+    background-color: rgba(255, 255, 255, 0.6);
+    /* background-color: white; */
+    width: 100%;
+    height: 100%;
     left: 50%;
     top: 2%;
-    padding: 30px;
+    padding: 2.5rem 3rem;
     color: black;
 }
 .tm-bg-transparent > div {
   position: relative;
-}
-.container {
-  width: 48%;
+  width: 100%;
+  height: 100%;
 }
 .tm-bg-transparent .division {
   top: 0;
-  height: 75vh;
+  height: 71vh;
   border: 1px solid white;
 }
 .btnAdd {
@@ -55,112 +89,111 @@ p:last-child { margin-bottom: 0; }
 
 .tm-font-big { font-size: 1.3rem; }
 
-.row {
-	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	margin-right: auto;
-	margin-left: auto;
-}
-
 .tm-main-row {
-  height: 100%;
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
 }
 
 #tmMainNavToggle { display: none; }
 #logo .logo {
-    width: 380px;
-    height: 380px;
+    width: 18%;
     position: absolute;
-    top: -20px;
-    left: 100px;
-    display:block;
-    margin:auto;
+    top: 0;
+    left: 3%;
   }
 .sidebar {
-    /* width: 100%; */
+  position: absolute;
     height: 65vh;
     box-sizing: border-box;
-    top:255px;
+    top: 25vh;
     left: 2%;
     background: white;
-    /* z-index: 5; */
+    width: 20%;
 }
 
 .tm-content {
-    display: flex;
-    -ms-flex-item-align: stretch;
-     align-self: stretch;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-     align-items: center;
-    left: 3%;
-    position: relative;
+    left: 26%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 80vh;
+    width: 71%;
 }
-#cbox1{
-  width: 20px;
-  height: 20px;
-}
-#descripcion{
-   width: 600px;
-    height: 250px;
-}
-#detalle1 {
-  float: left;
-}
-#detalle2 {
-  float: right;
+/*Restaurante*/
+
+#divImg {
+  position: relative;
 }
 #divImg img {
   width: 100%;
-  height: 35vh;
+  border-radius: 1.5rem;
+}
+#divImg .btnGreen {
+  width: 55%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  bottom: -4rem;
 }
 
-input[type="button"] {
-  position: center ;
-  bottom: .5rem;
-  margin: auto;
-  padding: 10px 20px;
-   font-weight: bold;
-  z-index: 1;
-  border-radius: 1.5rem;
-  outline: none;
-}
-input[type="button"]:hover {
-  cursor: pointer;
+
+#buttonUsu{
   background-color: #7cb342;
+  color: white;
+  font-size: 1.3rem;
+  position: relative;
+  left: 10px;
+  margin-top: 5px;
+  border-radius: 1.5rem;
+  border: 0;
+  height: 3.3rem;
+  padding: .5rem 1rem;
+  transition: all .5s;
+  cursor: pointer;
 }
-/*Usuario*/
-.login-box {
-  width: 22%;
-  height: 50vh;
-  /* background: rgba(236, 229, 229, 0.582); */
-  background: rgba(255, 255, 255, 0.5);
-  position: absolute;
-  box-sizing: border-box;
-  padding: 2rem 3rem;
-  display: block;
-  align-items: center;
-  margin: auto;
-  top: -20px;
-  bottom: 0;
-  right: 1rem;
-  left: 0px;
+/*tablas usuario*/
+#container-Usuarios{
+    text-align: center;
+    width: 100%;
+    max-height: 30vh;
+    padding-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0;
 }
-.login-box h3 {
-  padding-bottom: 1.5rem;
-  text-align: center;
+#container-Usuarios table {
+    width: 100%;
+    table-layout: fixed;
 }
-.login-box label {
-  font-weight: bold;
+#container-Usuarios td {
+  background-color: rgba(255, 255, 255, 0.4);
 }
-.login-box input {
-  width: 100%;
-  margin-bottom: 1.5rem;
-  height: 2.2rem;
+#container-Usuarios + .btnGreen {
+    top: 0;
 }
+#container-Usuarios tr:hover {
+  background-color: rgba(124, 179, 65, 0.5);
+}
+#container-Usuarios tr:last-child td:first-child {
+  border-radius: 0 0 0 1.5rem;
+}
+#container-Usuarios tr:last-child td:last-child {
+  border-radius: 0 0 1.5rem 0;
+}
+#container-Usuarios td:nth-child(1), th:nth-child(1) {
+  width: 7%;
+}
+#container-Usuarios td:nth-child(2), th:nth-child(2) {
+    width: 40%;
+}
+#cabeceraUsu {
+    background-color:#7cb342;
+    border-bottom: solid 3px green;
+}
+#cabeceraUsu th {
+  padding: .5rem 0;
+}
+
 /*-----------------------------*/
 .tm-nav-fa-icon {
     width: 55px;
@@ -213,15 +246,15 @@ input[type="button"]:hover {
 
 
 .tm-section {
-  height: 80vh;
-    /* max-width: 100%;
-    width: auto; */
+    height: 100%;
+    width: 100%;
     background: transparent;
+}
+.tm-section:not(#tm-section-2) .divColumn > h2 {
+    margin-bottom: .5rem;
 }
 
 .col-md-6.tm-contact-col { margin-bottom: 0; }
-
-/* #tm-section-1 { max-width: 700px; } */
 
 .tm-icon-media {
   margin-right: 1.5rem;
@@ -244,53 +277,95 @@ address { font-size: 1rem; }
     border-color: green;
     box-shadow: none;
 }
-.listDiv:hover {
+.listDiv {
+  margin: 0;
+  padding: 1rem;
+}
+.listDiv:hover, .selected {
+  background-color: #7cb342;
   color: white;
 }
 .divMenu {
-  position: relative;
   width: 100%;
-}
-.tableMenu {
-  height: auto;
-  max-height: 59vh;
 }
 .precioMenu {
   right: 1.1rem;
 }
+.tableMenu {
+  height: 50vh
+}
 .divForm {
   position: relative;
   float: right;
-  height: 100%;
   margin-left: 5%;
-  /* width: 30%; */
-  border: 1px soilid black;
 }
-.divForm td {
+.divColumn td {
+  position: relative;
   font-size: 1.3rem;
   padding: 1rem .5rem;
+}
+.divForm td .btnAdd {
+  transform: scale(0.4) translate(170%, 0);
 }
 .divForm table select {
   width: 100%;
 }
-.divForm input[type="button"] {
+.msg {
+  position: absolute;
+  left: .5rem;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 3px #7cb342;
+  opacity: 0;
+  transition: all .7s;
+  z-index: -1;
+}
+.divColumn {
+  position: relative;
+  height: 100%;
+}
+.divColumn header h2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.rows {
+  overflow-y: scroll;
+  height: auto;
+  max-height: 21vh;
+  border-radius: 0;
+}
+.detallePlatos {
+    height: 50vh;
+    margin-top: 1rem;
+}
+.scrollBar {
+  background: transparent;
+}
+.btnGreen {
   background-color: #7cb342;
   color: white;
   font-size: 1.3rem;
   position: absolute;
   bottom: 0;
   right: 0;
-  margin-bottom: 0;
+  border-radius: 1.5rem;
+  border: 0;
   height: 3.3rem;
+  padding: .5rem 1rem;
+  transition: all .5s;
+  cursor: pointer;
 }
-.divForm input[type="button"]:hover {
+.btnGreen:hover {
   background-color: green;
 }
 ::-webkit-scrollbar-thumb {
   background-color: white;
 }
 #tmSideBar > div {
-  width: 80%;
+  width: 75%;
+  /* max-width: 80%; */
+  padding: 0;
 }
 #fondoAdmin {
   position: absolute;
@@ -300,47 +375,104 @@ address { font-size: 1rem; }
 }
 #btnSalir {
   position: absolute;
-  bottom: .5rem;
+  bottom: 0;
   margin: auto;
-  padding: 10px 20px;
-  /* font-weight: bold; */
+  margin-bottom: -4rem;
+  padding: .7rem 1.5rem;
   z-index: 1;
   border-radius: 1.5rem;
   outline: none;
 }
-
+#tm-section-4 > div > .flex {
+  display: block;
+}
+#tm-section-4 .division {
+  height: 0;
+  width: 100%;
+  position: relative;
+  left: 0;
+}
+#tm-section-4 .divColumn {
+  width: 100%;
+  /* height: auto; */
+  height: 40vh;
+}
+#tm-section-4 .divForm {
+  margin-top: 1.5rem;
+  height: 27vh;
+}
+#formNewUser td:nth-child(3) {
+  padding: 1rem 0 1rem 1.5rem;
+}
+#formNewSalaComida td {
+  padding-bottom: .5rem;
+}
+#formNewSalaComida label {
+    margin: 0;
+}  
+#formNewSalaComida .btnGreen {
+  position: relative;
+  /* top: 0;
+  left: 0;
+  right: auto; */
+}
+#map {
+  height: 45vh;
+  border: 2px solid #ea4335;
+}
+#map + .btnRed {
+  font-size: 1.5rem;
+  /* line-height: 4rem; */
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 1.5rem;
+  width: 40%;
+  box-sizing: border-box;
+  padding: .7rem;
+}
+#nameFile {
+  text-align: right;
+  float: right;
+  width: 0;
+  margin: .7rem;
+}
+.btnRed img {
+  height: 4rem;
+  padding-left: .7rem;
+}
 @media (max-width: 1800px) {
-  .tm-section { margin-right: auto; }
+  /* .tm-section { margin-right: auto; } */
 }
 
 @media (max-width: 1724px) {
   .tm-nav-fa-icon { margin-right: 25px; }
 
-  .tm-main-nav a {
+  /* .tm-main-nav a {
     margin: 20px 0 35px 0;
     padding-right: 10px;
-  }
+  } */
 
-  .tm-content { padding: 50px 5%; }
+  /* .tm-content { padding: 50px 5%; } */
 }
 
 @media (max-width: 1400px) {
 
-    .tm-main-nav { font-size: 1.4rem; }
-    .tm-main-nav a { padding-right: 10px; }
+    /* .tm-main-nav { font-size: 1.4rem; } */
+    /* .tm-main-nav a { padding-right: 10px; } */
     .tm-nav-fa-icon { margin-right: 25px; }
 
-    .sidebar {
+    /* .sidebar {
       padding: 60px 30px;
-    }
+    } */
 }
 
-@media (max-width: 1340px) {
+/* @media (max-width: 1340px) {
   .tm-content {
     padding: 50px;
     margin: 0 auto;
   }
-}
+} */
 
 @media (max-width: 1199px) {
   .col-md-6.tm-contact-col {
@@ -354,7 +486,7 @@ address { font-size: 1rem; }
 @media (max-width: 991px) {
 
 
-    .tm-main-row { position: relative; }
+    /* .tm-main-row { position: relative; } */
 
     #tmMainNavToggle {
         display: block;
@@ -377,7 +509,7 @@ address { font-size: 1rem; }
         z-index: 1001;
     }
 
-    #tmSideBar {
+    /* #tmSideBar {
         width: 300px;
         position: absolute;
         min-height: 100vh;
@@ -395,14 +527,14 @@ address { font-size: 1rem; }
     .sidebar {
         background: #ffffff;
         padding: 20px;
-    }
+    } */
 
-    .tm-main-nav a {
+    /* .tm-main-nav a {
       padding-bottom: 20px;
       margin: 20px 0 25px 0;
-    }
+    } */
 
-    .tm-section { margin-left: auto; }
+    /* .tm-section { margin-left: auto; } */
 
     .tm-section-carousel {
       max-width: 620px;
@@ -410,9 +542,9 @@ address { font-size: 1rem; }
     }
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .tm-content { padding: 50px 30px; }
-}
+} */
 
 @media (max-width: 640px) {
   .tm-section-carousel {

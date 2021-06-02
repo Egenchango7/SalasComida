@@ -44,11 +44,11 @@
                 <div id="detalleMenu">
                     @include('tables/tableMenu', ['titleMenu' => 'detalle'])
                 </div>
-                <div id="detallePlatos" class="detallePlatos">
-                    @include('tables/tablePlatos')
+                <div id="detallePlatos">
+                    @include('tables/tablePlatos', ['view' => 'client'])
                 </div>
-                <div id="detallePostres" class="detallePlatos">
-                    @include('tables/tablePlatos')
+                <div id="detallePostres">
+                    @include('tables/tablePlatos', ['view' => 'client'])
                 </div>
                 <span class="material-icons-round"></span>
             </div>
@@ -58,8 +58,8 @@
         <img src="{{asset('src/logoSWOA_transparentO.png')}}" alt="imgRest">
     </div>
     <div id="divOfertas" class="flotante shadowLeft">
+        <div id="" class="scrollBar"></div>
         <div id="contentOfertas">
-            <div id="" class="scrollBar"></div>
             @foreach ($ofertas as $o)
                 @include('tables/tableOferta', ['oferta' => $o])
             @endforeach

@@ -17,7 +17,7 @@
            // Set up background first page
            var bgImg = $("#tmNavLink1").data("bgImg");
            
-           $.backstretch("img/" + bgImg, {fade: 500});
+          //  $.backstretch("img/" + bgImg, {fade: 500});
 
            // Setup Carousel, Nav, and Nav Toggle
           setupCarousel();

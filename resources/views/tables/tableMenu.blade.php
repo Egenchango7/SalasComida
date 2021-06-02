@@ -20,9 +20,9 @@
             <h2>Normal: S/ 00.00</h2>
         </div>
     @endif
+    <div id="" class="scrollBar heightMenu"></div>        
     <div id="" class="tableMenu heightMenu">
         @if ($titleMenu != 'detalleAdmin')
-            <div id="" class="scrollBar heightMenu"></div>        
         @endif
         <table>
             <tr>

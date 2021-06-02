@@ -8,9 +8,16 @@ function setupNav() {
       changePage(currentNavItem);
       
       setupCarousel();
-      setupFooter();
+    //   setupFooter();
 
       // celular
       $("#tmSideBar").removeClass("show");
   });	    
 }
+$('.listDiv').on('click', function () {
+    let selected = $(this).parent().parent().find('.selected');
+    if (selected) {
+        $(selected).removeClass('selected');
+    }
+    $(this).addClass('selected');
+});

@@ -7,3 +7,4 @@
 <script src="{{asset('js/admin/cargarElementos.js')}}"></script>
 <script src="{{asset('js/admin/cargarTodo.js')}}"></script>
 <script src="{{asset('js/admin/modal.js')}}"></script>
+<script src="{{asset('js/admin/menu.js')}}"></script>

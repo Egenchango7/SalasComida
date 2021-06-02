@@ -1,1 +1,0 @@
-hoverScroll('.tableMenu');

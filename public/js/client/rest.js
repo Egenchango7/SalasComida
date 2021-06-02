@@ -8,7 +8,7 @@ $('#optionsRest button').on('click', function (e) {
     let numOption = $(this).val(),
         optionSelected = $(this).text();
     $('#detalleOptionRest h1').text(optionSelected);
-    $('#detalleRight > div').css('display','none');
+    $('#detalleRight > div:not(".scrollBar")').css('display','none');
     let divs = {
         1: 'detalleMenu',
         2: 'detallePlatos',
@@ -26,7 +26,7 @@ $('#optionsRest button').on('click', function (e) {
     $('#detalleRight .material-icons-round').text(iconShow);
     // SET DATA REST...
     setTimeout(() => {
-            $('#optionsRest button').css('z-index', 2);
+            $('#optionsRest button').css('z-index', 3);
     }, 700);
 });
 $('#btnHideDetalle').on('click', function (e) { 
