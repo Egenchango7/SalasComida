@@ -8,10 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Restaurante extends Model
 {
     use HasFactory;
-    protected $table = 'restaurante'; 
+    protected $table = 'restaurante';
+    public $timestamps = false;
 
-    public function getById($idRest) {
-        $rest = Restaurante::where('id',$idRest)->get();
-        return $rest[0];
-    }
 }

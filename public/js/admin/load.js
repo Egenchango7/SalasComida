@@ -14,20 +14,14 @@
 
             $("#tm-section-1").fadeIn();
 
-           // Set up background first page
-           var bgImg = $("#tmNavLink1").data("bgImg");
            
-          //  $.backstretch("img/" + bgImg, {fade: 500});
 
            // Setup Carousel, Nav, and Nav Toggle
-          setupCarousel();
+          // setupCarousel();
           setupNav();
           setupNavToggle();
-          
-          // Resize Carousel upon window resize
-          $(window).resize(function() {
-              setupCarousel();
-              
-          });
         }	      	
+        let icon = $('#permisos').find('.material-icons-round');
+        icon.css('color', iconPermisos[(rests[0].permisos ? 1 : 0)].color);
+        icon.text(iconPermisos[(rests[0].permisos ? 1 : 0)].text);
   });

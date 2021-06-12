@@ -6,3 +6,5 @@
    		alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
    		renderPage = false;
 	}
+	var sidebarVisible = false;
+	var currentPageID = "#tm-section-1";

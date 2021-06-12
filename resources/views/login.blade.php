@@ -17,15 +17,15 @@
     <div class="login-box">
         <div>
             <h3>Sitio Web de Ofertas de Alimentos</h3>
-            <form action="">
-
+            <form action="{{route('login')}}" method="post">
+                @csrf
                 <label for="username">Username</label>
-                <input type="text" name="usuario" class="txt" required>
+                <input type="text" id="usuario" class="txt" name="username" required>
 
                 <label for="password">Password</label>
-                <input type="password" name="passw" class="txt" required>
+                <input type="password" id="passw" class="txt" name="pwd" required>
 
-                <input type="button" value="Ingresar">
+                <input type="submit" value="Ingresar" id="login">
 
             </form>
         </div>

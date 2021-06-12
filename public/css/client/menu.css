@@ -48,11 +48,11 @@
     font-size: 1.8rem;
     font-weight: bold;
 }
-.precioReducido {
+.precioNormal {
     background-color: #ea4335;
     top: 4rem;
     z-index: 1;
 }
-.precioReducido h2 {
+.precioNormal h2 {
     font-size: 1.2rem;
 }

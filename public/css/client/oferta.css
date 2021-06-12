@@ -5,18 +5,24 @@
     top: 25vh;
     height: 65vh;
     transition: 1s;
+    background: var(--greenGradient);
+}
+#divOfertas > h2 {
+    margin: 1.8rem 0 1rem 1.8rem;
 }
 #divOfertas .scrollBar {
-    margin: 1.8rem .7rem 0 0;
-    height: 60vh;
-    z-index: 1;
+    display: none;
 }
 #contentOfertas {
     position: relative;
-    margin: 1.8rem .7rem 0 .7rem;
-    height: 60vh;
+    margin: 0 .7rem;
+    padding-top: .3rem;
+    height: 54vh;
     overflow-y: scroll;
     overflow-x: hidden;
+}
+#contentOfertas .listDiv:last-child {
+    margin-bottom: .5rem;
 }
 #contentOfertas table {
     position: relative;

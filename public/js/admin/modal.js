@@ -19,7 +19,3 @@ $('input[type="file"]').on('change', function () {
     }
     $('#nameFile').val(nameFile);
 });
-$('#map + .btnRed').on('click', function (e) {
-    $(this).css('background-color', '#7cb342');
-    $(this).find('span').text('Guardar');
-});

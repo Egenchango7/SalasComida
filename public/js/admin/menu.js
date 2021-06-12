@@ -1,4 +1,9 @@
+let newMenu = {
+    entradas: [],
+    segundos: []
+}
 $('td .btnAdd .material-icons-round').on('click', (e) => {
+    
     let msg = $(e.target).parent().next(),
         input = msg.parent().find('input');
     input.val('');

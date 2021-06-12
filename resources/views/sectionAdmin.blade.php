@@ -2,8 +2,22 @@
     <div class="flex">
         {{-- COLUMNA 1 --}}
         <div class="divColumn">
-            <? $idForms = array('Salas de Comida' => 'SalaComida', 'Menús' => 'Menu', 'Platos' => 'Plato', 'Usuarios' => 'User'); ?>
-            <form action="" id="edit{{ $idForms[$titleSection] }}">
+            <? 
+            $idForms = array(
+                'Salas de Comida' => 'SalaComida',
+                'Menús' => 'Menu', 
+                'Platos' => 'Plato', 
+                'Usuarios' => 'User'
+            );
+            $actionForms = array(
+                'Salas de Comida' => array('rest.update','rest.update'), 
+                'Menús' => array('rest.update','rest.update'), 
+                'Platos' => array('rest.update','plato.add'), 
+                'Usuarios' => array('rest.update','rest.update')
+            );
+            ?>
+            <form action="{{ route($actionForms[$titleSection][0]) }}" id="edit{{ $idForms[$titleSection] }}" method="post" enctype="multipart/form-data">
+                @csrf
                 @include('headerSection', ['title' => $titleSection])
                 @switch($titleSection)
                     @case('Salas de Comida')
@@ -13,7 +27,7 @@
                                     <b>Dirección:</b>
                                 </td>
                                 <td>
-                                    <input type="text" name="direccion" id="direccion"/>
+                                    <input type="text" name="direccion" id="direccion" class="dirRest" value="{{ $rests[0]['direccion'] }}" readonly/>
                                 </td>
                             </tr>
                             <tr>
@@ -21,13 +35,14 @@
                                     <b>Telefono:</b>
                                 </td>
                                 <td>
-                                    <input type="text" name="telefono" id="fono"/>
+                                    <input type="text" name="telefono" id="fono" class="fonoRest" value="{{ $rests[0]['telefono'] }}" readonly/>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td id="permisos" colspan="2">
                                     <b>Permisos municipales y salubridad vigentes:</b> 
-                                    <input type="checkbox" value="">
+                                    <input type="checkbox" name="permisos" {{ $rests[0]['permisos'] ? 'checked' : '' }} hidden>
+                                    <span class="material-icons-round"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -37,7 +52,7 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <textarea></textarea>
+                                    <textarea class="descRest" name="descripcion" readonly>{{ $rests[0]['descripcion'] }}</textarea>
                                 </td>
                             </tr>
                         </table>
@@ -46,7 +61,18 @@
                         @include('tables/tableMenu', ['titleMenu' => 'detalleAdmin'])
                     @break
                     @case('Platos')
-                        @include('tables/tablePlatos', ['view' => 'admin'])
+                    <tr>
+                        <p><b>Tipo plato:</b>
+                            <select name="tipoPlato">
+                                @foreach ($tiposPlato as $tp)
+                                    @if ($tp->id != '2')
+                                        <option value="{{ $tp->id }}">{{ $tp->nombre }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </p>
+                    <tr>
+                        @include('tables/tablePlatos')
                     @break
                     @case('Usuarios')
                         <div id="container-Usuarios">
@@ -71,48 +97,15 @@
                             </table>
                             <div class="rows">
                                 <table>
-                                    <tr>
-                                        <td>U001</td>
-                                        <td>Navarro Falla, Eliezer</td>
-                                        <td>[Cargo]</td>
-                                        <td>[Usuario]</td>
-                                        <td><input type="password" name="" value="12345"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>U002</td>
-                                        <td>Chaname Gomez, Esteban Genaro</td>
-                                        <td>[Cargo]</td>
-                                        <td>[Usuario]</td>
-                                        <td><input type="password" name="" value="12345"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>U003</td>
-                                        <td>[nombre]</td>
-                                        <td>[Cargo]</td>
-                                        <td>[Usuario]</td>
-                                        <td><input type="password" name="" value="12345"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>U003</td>
-                                        <td>[nombre]</td>
-                                        <td>[Cargo]</td>
-                                        <td>[Usuario]</td>
-                                        <td><input type="password" name="" value="12345"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>U003</td>
-                                        <td>[nombre]</td>
-                                        <td>[Cargo]</td>
-                                        <td>[Usuario]</td>
-                                        <td><input type="password" name="" value="12345"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>U003</td>
-                                        <td>[nombre]</td>
-                                        <td>[Cargo]</td>
-                                        <td>[Usuario]</td>
-                                        <td><input type="password" name="" value="12345"></td>
-                                    </tr>
+                                    @foreach ($users as $u)
+                                        <tr>
+                                            <td>{{ $u['id'] }}</td>
+                                            <td>{{ $u['nombre'] }}</td>
+                                            <td>{{ $u['cargo'] }}</td>
+                                            <td>{{ $u['username'] }}</td>
+                                            <td><input type="password" name="" value="{{ $u['pwd'] }}"></td>
+                                        </tr>
+                                    @endforeach
                                 </table>
                             </div>
                         </div>
@@ -127,9 +120,11 @@
             @switch($titleSection)
                 @case('Salas de Comida')
                     <div id="divImg">
-                            <img src="{{ asset('src/FondoLogin.jpg') }}" alt="imgRest">
-                            <div class="btnGreen flex"><span class="material-icons-round">image</span>Cambiar imagen</div>
-                            {{-- <input type="button" value="Cambiar Imagen"> --}}
+                            <img src="{{ asset('img/'.$rests[0]['foto']) }}" class="srcImgRest" alt="imgRest">                            
+                            <label for="changeImg">
+                                <div class="btnGreen flex"><span class="material-icons-round">image</span>Cambiar imagen</div>
+                                <input type="file" name="changeImg" id="changeImg">
+                            </label>
                         </div>
                 @break
                 @case('Menús')
@@ -186,29 +181,27 @@
                         <tr>
                             <td><b>Nombre:</b></td>
                             <td>
-                                <input type="text">
+                                <input type="text" name="nombre">
                             </td>
                         </tr>
                         <tr>
                             <td><b>Tipo plato:</b></td>
                             <td>
                                 <select name="tipoPlato">
-                                    {{-- CAMBIAR POR CONSULTA BD --}}
-                                    <option value="1">Entrada</option>
-                                    <option value="2">A la carta</option>
-                                    <option value="3">Postre</option>
+                                    @foreach ($tiposPlato as $tp)
+                                        @if ($tp->id != '2')
+                                            <option value="{{ $tp->id }}">{{ $tp->nombre }}</option>
+                                        @endif
+                                    @endforeach
                                 </select>
                             </td>
                         <tr>
                         <tr>
                             <td><b>Precio (S/.):</b></td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="precio"></td>
                         </tr>
-                        {{-- <tr>
-                        <td>Precio reducido:</td>
-                        <td><input type="text" placeholder="opcional"></td>
-                    </tr> --}}
                     </table>
+                    <input type="text" id="idRestPlato" name="idRest" hidden>
                 @break
                 @case('Usuarios')
                     @include('headerSection', ['title' => 'Nuevo Usuario'])
@@ -255,7 +248,7 @@
             </span>
         </div>
         @else
-            <div class="btnGreen flex"><span class="material-icons-round">save</span>Guardar</div>
+            <div class="btnGreen flex btnSave"><span class="material-icons-round">save</span>Guardar</div>
             </form>
         </div>
             @endif

@@ -18,11 +18,12 @@ function initMap() {
         myMap.map = map;
         $.ajax({
             url: "/locations",
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (response) {
                 let jsonLocations = JSON.parse(response);
                 jsonLocations.map((location) => {
-                    let rest = location.rest;
-                    let ll = {
+                    let rest = location.rest,
+                        ll = {
                         lat: Number(location.lat),
                         lng: Number(location.lng),
                         title: rest.nombre

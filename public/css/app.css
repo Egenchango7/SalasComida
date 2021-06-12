@@ -1,3 +1,9 @@
+:root {
+    --greenGradient: linear-gradient(135deg, rgba(124,179,66,1) 40%, rgba(0,128,0,1) 100%);
+    --myGreen: #7cb342;
+    --myRed: #ea4335;
+    --redGradient: linear-gradient(130deg, rgba(239,1,7,1) 40%, rgba(234,67,53,1) 100%);
+}
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +25,7 @@ input, select {
     transition: all .5s;
 }
 input:focus, select:focus {
-    border-bottom: 1px solid #7cb342;
+    border-bottom: 1px solid var(--myGreen);
     outline: none;
 }
 button {
@@ -64,7 +70,7 @@ button {
     z-index: 1;
 }
 .btnRed {
-    background-color: #ea4335;
+    background-color: var(--myRed);
     /* background: linear-gradient(130deg, rgba(234,67,53,1) 40%, rgba(239,1,7,1) 100%); */
     color: white;
     border: 0;
@@ -72,22 +78,31 @@ button {
     cursor: pointer;
 }
 .btnRed:hover {
-    background-color: #EF0107;
-    /* background: linear-gradient(130deg, rgba(239,1,7,1) 40%, rgba(234,67,53,1) 100%); */
+    background-color: red;
+}
+.contentList {
+    position: relative;
+    margin: 1.8rem .7rem 0 .7rem;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .listDiv {
     margin: 0 1.1rem 1.5rem 1.1rem;
     padding: 15px;
-    border: 2px solid #7cb342;
+    /* border: 2px solid #7cb342; */
     transition: all .5s;
     box-sizing: content-box;
     background-color: white;
+    border: 0;
 }
 .listDiv:hover {
-    background-color: #7cb342;
+    background-color: white;
+    z-index: 2;
     transform: scale(1.05);
     /* margin: 0px 5px 15px 5px;
     padding: 20px 15px; */
+    cursor: pointer;
 }
 ::-webkit-scrollbar {
     width: 6px;
@@ -102,10 +117,9 @@ button {
     width: 16%;
     padding: 1.2rem;
     border-radius: 50%;
-    background-color: #7cb342;
+    background: var(--greenGradient);
 }
 #logoSWOA img {
     width: 100%;
     border-radius: 50%;
-    background-color: white;
 }

@@ -15,22 +15,22 @@
                 <button id="tmMainNavToggle" class="menu-icon">&#9776;</button>
                 <div>
                     <nav id="tmMainNav" class="tm-main-nav">
-                        <a href="" id="tmNavLink1" data-page="#tm-section-1">
+                        <a href="" data-page="#tm-section-1">
                             <div class="listDiv">
                                 <h2>Salas de Comida</h2>
                             </div>
                         </a>
-                        <a href="" id="tmNavLink1" data-page="#tm-section-2">
+                        <a href="" data-page="#tm-section-2">
                             <div class="listDiv">
                                 <h2>Menús</h2>
                             </div>
                         </a>
-                        <a href="" id="tmNavLink1" data-page="#tm-section-3">
+                        <a href="" data-page="#tm-section-3">
                             <div class="listDiv">
                                 <h2>Platos</h2>
                             </div>
                         </a>
-                        <a href="" id="tmNavLink1" data-page="#tm-section-4">
+                        <a href="" data-page="#tm-section-4">
                             <div class="listDiv">
                                 <h2>Usuarios</h2>
                             </div>
@@ -68,12 +68,13 @@
                 <span class="material-icons-round">close</span>
             </div>
             <h1>Nueva Sala de Comida</h1>
-            <form action="" id="formNewSalaComida" class="flex">
+            <form action="{{ route('rest.new') }}" id="formNewSalaComida" method="post" class="flex" enctype="multipart/form-data">
+                @csrf
                 <div class="divColumn">
                     <table>
                         <tr>
                             <td><b>Nombre:</b></td>
-                            <td><input type="text" name=""></td>
+                            <td><input type="text" name="nombre"></td>
                         </tr>
                         <tr>
                             <td>
@@ -94,7 +95,7 @@
                         <tr>
                             <td colspan="2">
                                 <b>Permisos municipales y salubridad vigentes:</b> 
-                                <input type="checkbox" value="">
+                                <input type="checkbox" name="permisos">
                             </td>
                         </tr>
                         <tr>
@@ -114,7 +115,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <textarea></textarea>
+                                <textarea name="descripcion"></textarea>
                             </td>
                         </tr>
                     </table>
@@ -123,6 +124,7 @@
                 <div class="divColumn divForm">
                     <div id="map"></div>
                     <div class="btnRed flex"><span>Agregar</span> <img src="{{ asset('src/markerRestWhiteTransparent.png') }}" alt=""></div>
+                    <input type="text" id="marker" name="marker" hidden>
                 </div>
             </form>
         </div>

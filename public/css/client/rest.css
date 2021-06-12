@@ -6,25 +6,42 @@
         display: none;
     }
 }
-#divRest {
-    height: 90vh;
+.divRest {
     width: 28%;
     top: 0;
-    left: -35%;
     transition: 1s;
+}
+.divRest > .scrollBar {
+    display: none;
+}
+.divRest:not(#divRest) {
+    /* background: linear-gradient(135deg, rgba(234,67,53,1) 20%, rgba(255,0,0,1) 100%); */
+    background: linear-gradient(135deg, rgba(124,179,66,1) 20%, rgba(0,128,0,1) 100%);
+}
+#contentRest h1 {
+    margin: 0 0 1.4rem 1.4rem;
+}
+#contentRest span {
+    display: none;
+}
+#divRest {
+    height: 90vh;
+    left: -35%;
 }
 #btnHideRest {
     right: -15px;
     top: -15px;
-    border-radius: 25px;
+    border-radius: 1.5rem;
 }
 #divImgRest {
     width: 100%;
     height: 28vh;
+    overflow: hidden;
+    border-radius: 1.5rem 1.5rem 0 0;
 }
 #divImgRest img {
-    width: 100%;
-    border-radius: 25px 25px 0px 0px;
+    height: 100%;
+    border-radius: 1.5rem 1.5rem 0 0;
 }
 #infoRest {
     position: absolute;

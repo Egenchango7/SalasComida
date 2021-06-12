@@ -12,31 +12,31 @@ class Maps {
             }
         });
     }
-    addMarker(map, pos) {
+    addMarker(map, pos, isNew) {
         return new Promise((resolve, reject) => {
             let marker = new google.maps.Marker({
                 position: pos,
                 map: map,
-                title: pos.title,
-                icon: urlIcon // https://i.postimg.cc/L6rY4Vwm/marker2-copia.png
+                draggable: isNew,
+                // title: pos.title,
+                icon: isNew ? newMarkerIcon : urlIcon // https://i.postimg.cc/L6rY4Vwm/marker2-copia.png
             });
+            if (isNew) this.newMarker = marker;
             resolve(marker);
         });
     }
     addEvent(marker,location,rest) {
         marker.addListener("click", () => {
-            $('#divRest').css('left', 0);
-            $('#divRest').css('transition', '1s');
-            $('#infoRest h1').text(rest.nombre);
-            $('#infoRest p').text(rest.desc);
-            marker.setIcon(biggerIcon);
-            myMap.markers.find((m) => m.id == location.id).selected = true;
-            myMap.restSelected = rest;
-            let anotherSelected = myMap.markers.find((m) => m.selected && m.id != location.id);
-            if (anotherSelected) {
-                anotherSelected.marker.setIcon(urlIcon);
-                anotherSelected.selected = false;
-            }
+            showDivRest(location.id,rest);
+        });
+        let infoWindow = new google.maps.InfoWindow({
+            content: '<h3 style="padding: .5rem">' + rest.nombre + '</h3>'
+        })
+        marker.addListener('mouseover', function() {
+            infoWindow.open(map, this);
+        });
+        marker.addListener('mouseout', function() {
+            infoWindow.close();
         });
     }
 }
