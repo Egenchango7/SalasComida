@@ -1,3 +1,6 @@
+// VAR
+let indexSection = 1,
+    idSection = '#tm-section-1';
 // FUNCTIONS 
 // Setup Nav
 function changePage(currentNavItem) {
@@ -31,23 +34,24 @@ function setupNavToggle() {
         $(".sidebar").toggleClass("show");
     });
 }
-let indexSection = 1,
-    idSection;
 // EVENTS 
 $('.listDiv').on('click', async function () {
     let nav = $(this).parent(),
         selected = nav.parent().find('.selected');
-    idSection = nav.data('page');
-    indexSection = Number(idSection.substr(idSection.length - 1));
-    let idRest = $(idSection).find('select[name="listRest"]').val();
+    if (selected) $(selected).removeClass('selected');
+    $(this).addClass('selected');
+    if (idSection != nav.data('page')) {
+        toggleEditMode(true);
+        idSection = nav.data('page');
+        indexSection = Number(idSection.substr(idSection.length - 1));
+    }
+    isEdit = false;
+    let idRest = $(`${idSection} select[name="listRest"]`).val();
     if (indexSection == 2) {
-        await getTiposMenuByRest(idRest);
-        let tipoMenu = $(`${idSection} h2 .tipoMenu`).val();
-        fillTableMenu(idRest, tipoMenu)
+        refreshMenu(idRest);
     } else if (indexSection == 3) {
         let tipo = $(idSection).find('p select[name="tipoPlato"]').val();
         fillTablePlatos(`/platos/tipo/${tipo}/rest/${idRest}`);
     }
-    if (selected) $(selected).removeClass('selected');
-    $(this).addClass('selected');
+    
 });

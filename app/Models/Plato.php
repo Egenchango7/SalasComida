@@ -32,6 +32,25 @@ class Plato extends Model
         return DB::table('tipoPlato')->get();
     }  
     public function insertPrecioByRest($idPlato,$r) {
-        DB::insert('insert into platoRest (idRest,idPlato,precio) values (?, ?, ?)', [$r->idRest,$idPlato,$r->precio]);
+        DB::table('platoRest')->insert([
+            'idRest' => $r->listRest,
+            'idPlato' => $idPlato,
+            'precio' => $r->precio
+        ]);
+    }
+    public function updatePrecioByPlato($id,$precio){
+        DB::table('platoRest')
+            ->where('idPlato',$id)
+            ->update([
+                'precio' => $precio
+            ]);
+    }
+    public static function deleteReferences($idPlato) {
+        DB::table('platoRest')
+            ->where('idPlato',$idPlato)
+            ->delete();
+        DB::table('menuPlato')
+            ->where('idPlato',$idPlato)
+            ->delete();
     }
 }

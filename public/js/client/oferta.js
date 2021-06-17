@@ -11,5 +11,5 @@ $('.listDiv .btnRed').on('click', function () {
         tipoMenu = $(this).val().substr(5);
         rest = rests.find(r => r.id == idRest);
     showDivRest(location.id,rest);
-    showDetalle(1,idRest,tipoMenu);
+    showDetalle(1,idRest,tipoMenu); 
 });

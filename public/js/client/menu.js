@@ -1,13 +1,30 @@
-let jsonMenus;
+// VAR
+let platosMenu = {
+        src: null,
+        1: {
+            num: 0, 
+            max: 0, 
+            src: [], 
+            data: [], 
+        },
+        2: {
+            num: 0, 
+            max: 0, 
+            src: [], 
+            data: [], 
+        },
+        new: []
+    }
 // FUNCTIONS
 const fillTableMenu = (idRest, tipoMenu, changeDayMenu) => {
     $.ajax({
         url: "/menus/rest/"+ idRest,
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         success: function (response) {
-            jsonMenus = JSON.parse(response);
-            let selectedMenu = jsonMenus.find(m => m.menu.idTipoMenu == Number(tipoMenu)),
-                m = selectedMenu.menu,
+            let jsonMenus = JSON.parse(response),
+                selectedMenu = jsonMenus.find(m => m.menu.idTipoMenu == Number(tipoMenu));
+                if (!selectedMenu) return;
+            let m = selectedMenu.menu,
                 precioReducido = m.precioReducido == 0 ? m.precio : m.precioReducido,
                 platos = selectedMenu.platos,
                 notDayMenu = ':not(#infoRest',
@@ -16,50 +33,34 @@ const fillTableMenu = (idRest, tipoMenu, changeDayMenu) => {
             $(precioMenu).text("S/ " + precioReducido.toFixed(2));
             $(".precioNormal h2").text("Normal: S/" + m.precio.toFixed(2));
             $('h2 .tipoMenu').val(tipoMenu);
-            let table = "<tr>" + "<td>" + "<h3>Entrada:</h3>" + "</td>" + "</tr>";
+            $('#idMenu').val(m.idMenu);
+            let table = "<tr><td class='tipoPlatoMenu' data-type='1'><h3>Entrada:</h3></td></tr>";
+            platosMenu[1].num = platosMenu[2].num = 0;
             platos.map((p) => {
                 if (p.idTipoPlato == 1) {
+                    platosMenu[1].num++;
+                    platosMenu[1].data.push(p);
                     table +=
                         "<tr>" +
-                        "<td></td>" +
-                        '<td class="itemMenu">' +
-                        p.nombre +
-                        "</td>" +
+                        `<td data-type="1"><input type="text" name="platosMenu[]" value="${p.idPlato}" hidden></td>` +
+                        `<td class="itemMenu">${p.nombre}</td>` +
                         "</tr>";
                 }
             });
-            table += "<tr>" + "<td>" + "<h3>Segundo:</h3>" + "</td>" + "</tr>";
+            table += "<tr><td class='tipoPlatoMenu' data-type='2'><h3>Segundo:</h3></td></tr>";
             platos.map((p) => {
                 if (p.idTipoPlato == 2) {
+                    platosMenu[2].num++;
+                    platosMenu[2].data.push(p);
                     table +=
                         "<tr>" +
-                        "<td></td>" +
-                        '<td class="itemMenu">' +
-                        p.nombre +
-                        "</td>" +
+                        `<td data-type="2"><input type="text" name="platosMenu[]" value="${p.idPlato}" hidden></td>` +
+                        `<td class="itemMenu">${p.nombre}</td>` +
                         "</tr>";
                 }
             });
             $(divMenu).html(table);
         },
-    });
-}
-const fillTablePlatos = (url) => {
-    $.ajax({
-        url: url,
-        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        success: function (response) {
-            let jsonPlatos = JSON.parse(response), 
-                table = '';
-            jsonPlatos.map((p) => {
-                table += '<tr>' +
-                            '<td class="itemMenu">' + p.nombre + '</td>' +
-                            '<td class="itemMenu">S/ ' + p.precio.toFixed(2) + '</td>' +
-                        '</tr>';
-            });
-            $('.detallePlatos table').html(table);
-            if (jsonPlatos.length == 1) $('.detallePlatos td').css('border-radius', '1.5rem');
-        }
     });
 }
 const getTiposMenuByRest = async (idRest) => {
@@ -82,4 +83,7 @@ $("h2 .tipoMenu").on("change", function () {
         rest = myMap.restSelected,
         idRest = !rest ? $(this).closest('section').find('select[name="listRest"]').val() : rest.id;
     fillTableMenu(idRest,tipoMenu,false);
+    if (isEdit) {
+        toggleEditMode(isEdit)
+    }
 });

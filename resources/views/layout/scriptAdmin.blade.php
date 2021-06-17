@@ -7,6 +7,7 @@
 <script src="{{asset('js/admin/menu.js')}}"></script>
 <script src="{{asset('js/admin/plato.js')}}"></script>
 <script src="{{asset('js/admin/rest.js')}}"></script>
+<script src="{{asset('js/admin/user.js')}}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?=
 '<script>

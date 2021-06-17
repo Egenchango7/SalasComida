@@ -22,7 +22,9 @@ const fillInfoRest = (rest) => {
     $('.descRest').val(rest.descripcion);
     $('.fonoRest').val(rest.telefono);
     $('.dirRest').val(rest.direccion);
-    $('.srcImgRest')[0].src = `img/${rest.foto}`;
+    // let srcRest = $('#divImgRest img').attr('src');
+    // srcRest = srcRest.substr(0,srcRest.indexOf('img/') + 4) + rest.foto;
+    $('.srcImgRest').attr('src',`img/${rest.foto}`);
     let icon = $('#permisos').find('.material-icons-round');
     icon.css('color', iconPermisos[(rest.permisos ? 1 : 0)].color);
     icon.text(iconPermisos[(rest.permisos ? 1 : 0)].text);
@@ -37,7 +39,6 @@ $('#contentRest .listDiv').on('click', function () {
 });
 $('#btnHideRest').on('click', function (e) { 
     $('#divRest').css('left', '-35%');
-    // $('#contentRest .scrollBar').css('z-index', 0);
     let ms = myMap.markers.find(m => m.selected);
     ms.selected = false;
     ms.marker.setIcon(urlIcon);

@@ -9,20 +9,22 @@
 .divRest {
     width: 28%;
     top: 0;
-    transition: 1s;
+    transition: all 1s;
+    max-height: 90vh;
 }
-.divRest > .scrollBar {
-    display: none;
+.divRest > h1 {
+    margin: 1.5rem 0 1.2rem 2rem;
 }
 .divRest:not(#divRest) {
+    padding-bottom: 1rem;
     /* background: linear-gradient(135deg, rgba(234,67,53,1) 20%, rgba(255,0,0,1) 100%); */
     background: linear-gradient(135deg, rgba(124,179,66,1) 20%, rgba(0,128,0,1) 100%);
 }
-#contentRest h1 {
-    margin: 0 0 1.4rem 1.4rem;
-}
 #contentRest span {
     display: none;
+}
+#contentRest .listDiv{
+    position: relative;
 }
 #divRest {
     height: 90vh;
@@ -40,7 +42,10 @@
     border-radius: 1.5rem 1.5rem 0 0;
 }
 #divImgRest img {
-    height: 100%;
+    min-width: 100%;
+    max-width: 110%;
+    min-height: 100%;
+    max-height: 110%;
     border-radius: 1.5rem 1.5rem 0 0;
 }
 #infoRest {

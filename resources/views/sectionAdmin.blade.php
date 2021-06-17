@@ -11,13 +11,12 @@
             );
             $actionForms = array(
                 'Salas de Comida' => array('rest.update','rest.update'), 
-                'Menús' => array('rest.update','rest.update'), 
-                'Platos' => array('rest.update','plato.add'), 
-                'Usuarios' => array('rest.update','rest.update')
+                'Menús' => array('menu.update','menu.new'),
+                'Platos' => array('plato.update','plato.add'), 
+                'Usuarios' => array('usuario.update','usuario.add')
             );
             ?>
-            <form action="{{ route($actionForms[$titleSection][0]) }}" id="edit{{ $idForms[$titleSection] }}" method="post" enctype="multipart/form-data">
-                @csrf
+            <form action="{{ route($actionForms[$titleSection][0]) }}" name="edit{{ $idForms[$titleSection] }}" id="edit{{ $idForms[$titleSection] }}" method="post" enctype="multipart/form-data">
                 @include('headerSection', ['title' => $titleSection])
                 @switch($titleSection)
                     @case('Salas de Comida')
@@ -52,22 +51,21 @@
                             </tr>
                             <tr>
                                 <td colspan="2">
+                                    <input type="file" name="changeImg" id="changeImg">
                                     <textarea class="descRest" name="descripcion" readonly>{{ $rests[0]['descripcion'] }}</textarea>
                                 </td>
                             </tr>
                         </table>
                     @break
                     @case('Menús')
-                        @include('tables/tableMenu', ['titleMenu' => 'detalleAdmin'])
+                        @include('tables/tableMenu', ['titleMenu' => 'detalle'])
                     @break
                     @case('Platos')
                     <tr>
                         <p><b>Tipo plato:</b>
                             <select name="tipoPlato">
                                 @foreach ($tiposPlato as $tp)
-                                    @if ($tp->id != '2')
-                                        <option value="{{ $tp->id }}">{{ $tp->nombre }}</option>
-                                    @endif
+                                    <option value="{{ $tp->id }}">{{ $tp->nombre }}</option>
                                 @endforeach
                             </select>
                         </p>
@@ -98,12 +96,12 @@
                             <div class="rows">
                                 <table>
                                     @foreach ($users as $u)
-                                        <tr>
-                                            <td>{{ $u['id'] }}</td>
+                                        <tr onclick="selectRow(this)">
+                                            <td class="idRow">{{ $u['id'] }}</td>
                                             <td>{{ $u['nombre'] }}</td>
                                             <td>{{ $u['cargo'] }}</td>
                                             <td>{{ $u['username'] }}</td>
-                                            <td><input type="password" name="" value="{{ $u['pwd'] }}"></td>
+                                            <td><input type="password" value="{{ $u['pwd'] }}"></td>
                                         </tr>
                                     @endforeach
                                 </table>
@@ -111,7 +109,7 @@
                         </div>
                     @break
                 @endswitch
-                <div class="btnGreen flex"><span class="material-icons-round">edit</span>Editar</div>
+                <div class="btnGreen flex btnEdit"><span class="material-icons-round">edit</span>Editar</div>
             </form>
         </div>
         <div class="division"></div>
@@ -123,17 +121,17 @@
                             <img src="{{ asset('img/'.$rests[0]['foto']) }}" class="srcImgRest" alt="imgRest">                            
                             <label for="changeImg">
                                 <div class="btnGreen flex"><span class="material-icons-round">image</span>Cambiar imagen</div>
-                                <input type="file" name="changeImg" id="changeImg">
                             </label>
                         </div>
                 @break
                 @case('Menús')
                     @include('headerSection', ['title' => 'Nuevo Menú'])
                     <table>
+                        <div class="inputsHidden"></div>
                         <tr>
                             <td><b>Entrada:</b></td>
-                            <td>
-                                <input type="text">
+                            <td data-type="1">
+                                <select class="newPlatoTipo1"></select>
                                 <div class="btnAdd flex">
                                     <span class="material-icons-round">
                                         add_circle
@@ -144,8 +142,8 @@
                         </tr>
                         <tr>
                             <td><b>Segundo:</b></td>
-                            <td>
-                                <input type="text">
+                            <td data-type="2">
+                                <select class="newPlatoTipo2"></select>
                                 <div class="btnAdd flex">
                                     <span class="material-icons-round">
                                         add_circle
@@ -167,11 +165,11 @@
                         <tr>
                         <tr>
                             <td><b>Precio (S/.) :</b></td>
-                            <td><input type="text"></td>
+                            <td><input type="text" name="precioNormal"></td>
                         </tr>
                         <tr>
                             <td><b>Precio reducido:</b></td>
-                            <td><input type="text" placeholder="opcional"></td>
+                            <td><input type="text" name="precioReducido"></td>
                         </tr>
                     </table>
                 @break
@@ -189,9 +187,7 @@
                             <td>
                                 <select name="tipoPlato">
                                     @foreach ($tiposPlato as $tp)
-                                        @if ($tp->id != '2')
-                                            <option value="{{ $tp->id }}">{{ $tp->nombre }}</option>
-                                        @endif
+                                        <option value="{{ $tp->id }}">{{ $tp->nombre }}</option>
                                     @endforeach
                                 </select>
                             </td>
@@ -201,7 +197,6 @@
                             <td><input type="text" name="precio"></td>
                         </tr>
                     </table>
-                    <input type="text" id="idRestPlato" name="idRest" hidden>
                 @break
                 @case('Usuarios')
                     @include('headerSection', ['title' => 'Nuevo Usuario'])
@@ -218,7 +213,7 @@
                             </td>
                             <td>
                                 <select name="listCargo">
-                                    <option value="1">Admin</option>
+                                    <option value="admin">Admin</option>
                                 </select>
                             </td>
                         </tr>

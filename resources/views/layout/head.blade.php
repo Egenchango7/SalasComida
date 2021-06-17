@@ -14,3 +14,4 @@
     <link href="{{ asset('css/client/modal.css') }}" rel="stylesheet">
     <link href="{{ asset('css/client/plato.css') }}" rel="stylesheet">
     <link href="{{ asset('css/client/detalle.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/client/WhatsApp.css') }}" rel="stylesheet " href="WhatsApp.css">

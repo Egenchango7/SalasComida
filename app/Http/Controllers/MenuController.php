@@ -22,18 +22,39 @@ class MenuController extends Controller
     public function getOfertasDestacadas() {
         $obj = new Menu();
         $ofertas = $obj->getMenusOferta();
-        /*
-        for ($i=0; $i < count($ofertas); $i++) { 
-            $o = array('id' => $i);
-            array_push($ofertas,$o);
-        }
-        */
         return $ofertas;
     }
-    public function getTiposMenuByRest($idRest) {
+    public function getTiposMenuByRest($idRest, $return = false) {
         $objTM = new Menu();
         $tiposMenu = $objTM->getTiposMenuByRest($idRest);
-        echo $tiposMenu;
+        if ($return) {
+            return $tiposMenu;
+        } else {
+            echo $tiposMenu;
+        }
+    }
+    public function updateMenu(Request $r) {
+        $menu = new Menu();
+        return $menu->updateMenu($r->idMenu, $r);
+    }
+    public function newMenu(Request $r) {
+        $menu = new Menu();
+        $tiposMenu = $this->getTiposMenuByRest($r->listRest,true);
+        foreach ($tiposMenu as $tm) {
+            if ($tm['idTipoMenu'] == $r->tipoMenu) $idMenu = $tm->idMenu;
+        }
+        if (isset($idMenu)) return $menu->updateMenu($idMenu,$r,true);
+        $newId = $this->getLastId('menu');
+        $menu->id = $newId;
+        $menu->idTipoMenu = $r->tipoMenu;
+        $menu->save();
+        $menu->newMenu($newId,$r);
+        return $r;
+    }
+    public function destroyMenu($id){
+        Menu::deleteReferences($id);
+        Menu::find($id)->delete();
+        return back();
     }
 }
 

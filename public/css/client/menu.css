@@ -19,7 +19,7 @@
     margin-top: 5px;
 }
 .divMenu .scrollBar {
-    top: 3rem;
+    top: 3.5rem;
 }
 .divMenu h2 {
     padding: .5rem 0;
@@ -32,16 +32,32 @@
     background-color: #7cb342;
 }
 .tableMenu {
-    margin-top: .5rem;
+    margin-top: 1rem;
     border-radius: 0;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 .tableMenu td {
     padding-top: 0 !important;
 }
+.tableMenu .itemMenu {
+    display: inline-flex;
+}
+.tipoPlatoMenu {
+    padding-bottom: 0 !important;
+}
+.tipoPlatoMenu + td {
+    display: inline-flex;
+    padding: 0 !important;
+    color: var(--myGreen);
+}
 .itemMenu {
     font-size: 1.4rem;
     padding: 1rem 0px !important;
+}
+.itemMenu .material-icons-round {
+    color: var(--myRed);
+    bottom: 0;
 }
 .tipoMenu {
     width: 10rem;
@@ -50,7 +66,7 @@
 }
 .precioNormal {
     background-color: #ea4335;
-    top: 4rem;
+    top: 3.5rem;
     z-index: 1;
 }
 .precioNormal h2 {

@@ -24,15 +24,18 @@
         <input type="text" name="txtBuscador" id="txtBuscador"/>
     </div>
     <div class="divRest flotante shadowLeft">
-        <div class="scrollBar"></div>
+        <h1>Restaurantes</h1>
         <div id="contentRest" class="contentList">
-            <h1>Restaurantes</h1>
             @foreach ($rests as $r)
                 <div class="listDiv shadowRight">
                     <h2>{{ $r['nombre'] }}</h2>
                     <span>{{ $r['id'] }}</span>
                     <p><b>Dirección:</b> {{ $r['direccion'] }}</p>
                     <p><b>Teléfono:</b> {{ $r['telefono'] }}</p>
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+                    <a href="https://api.whatsapp.com/send?phone=51{{ $r['telefono'] }}&text=Quisiera realizar un pedido." class="float" target="_blank">
+                        <i class="fa fa-whatsapp my-float"></i>
+                    </a>
                 </div>
                 {{-- @include('tables/tableRest', ['rest' => $r]) --}}
             @endforeach
@@ -90,7 +93,6 @@
     </div>
     <div id="divOfertas" class="flotante shadowLeft">
         <h2>Ofertas destacadas</h2>
-        <div id="" class="scrollBar"></div>
         <div id="contentOfertas" class="contentList">
             <?=
             '<script>

@@ -14,15 +14,7 @@
     display: none;
 }
 #contentOfertas {
-    position: relative;
-    margin: 0 .7rem;
-    padding-top: .3rem;
     height: 54vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-#contentOfertas .listDiv:last-child {
-    margin-bottom: .5rem;
 }
 #contentOfertas table {
     position: relative;

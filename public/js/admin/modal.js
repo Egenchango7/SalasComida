@@ -6,7 +6,7 @@ $('#btnHideDetalle').on('click', function (e) {
     $('#map + .btnRed').css('background-color', '#ea4335');
     $('#map + .btnRed span').text('Agregar');
 });
-$('input[type="file"]').on('change', function () {
+$('#fotoRest').on('change', function () {
     let pathFile = $(this).val(),
         nameFile = pathFile.substr(pathFile.lastIndexOf('\\') + 1),
         span = $(this).parent().find('.btnGreen span:not(".material-icons-round")');

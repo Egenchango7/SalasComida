@@ -6,6 +6,7 @@ use App\Models\Login;
 use App\Models\Menu;
 use App\Models\Plato;
 use App\Models\Restaurante;
+use App\Models\Ubicacion;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -22,17 +23,17 @@ class RestauranteController extends Controller
     }
     public function adminView(Login $login) {
         $rests = Restaurante::all();
-        $users = User::all();
+        $users = Login::all();
         $tiposPlato = Plato::getTiposPlato();
         return view('admin', compact('rests','users','tiposPlato','login'));
     }
-    public function updateRest(Request $request) {
-        $rest = Restaurante::find($request->listRest);
-        $rest->direccion = $request->direccion;
-        $rest->telefono = $request->telefono;
-        $rest->permisos = isset($request->permisos);
-        $rest->descripcion = $request->descripcion;
-        $img = $request->file('changeImg');
+    public function updateRest(Request $r) {
+        $rest = Restaurante::find($r->listRest);
+        $rest->direccion = $r->direccion;
+        $rest->telefono = $r->telefono;
+        $rest->permisos = isset($r->permisos);
+        $rest->descripcion = $r->descripcion;
+        $img = $r->file('changeImg');
         if (isset($img)) {
             $restImg = $rest->id.'.'.$img->getClientOriginalExtension();
             $img->move(public_path('img'),$restImg);
@@ -41,20 +42,17 @@ class RestauranteController extends Controller
         $rest->save();
         return $rest;
     }
-    public function newRest(Request $request) {
-        $lastId = Restaurante::latest('id')->first()->id;
-        $newId = (intval(substr($lastId, 1)) + 1);
-        $newId = 'R'.str_pad($newId, 3, "0", STR_PAD_LEFT);
-        
+    public function newRest(Request $r) {
+        $newId = $this->getLastId('restaurante');
         $rest = new Restaurante();
         $rest->id = $newId;
-        $rest->nombre = $request->nombre;
-        $rest->direccion = $request->direccion;
-        $rest->telefono = $request->telefono;
-        $rest->permisos = isset($request->permisos);
-        $rest->descripcion = $request->descripcion;
+        $rest->nombre = $r->nombre;
+        $rest->direccion = $r->direccion;
+        $rest->telefono = $r->telefono;
+        $rest->permisos = isset($r->permisos);
+        $rest->descripcion = $r->descripcion;
         
-        $img = $request->file('fotoRest');
+        $img = $r->file('fotoRest');
         $restImg = $rest->id.'.'.$img->getClientOriginalExtension();
         $img->move(public_path('img'),$restImg);
         $rest->foto = $restImg;
@@ -62,6 +60,13 @@ class RestauranteController extends Controller
         $rest->save();
         
         $objU = new UbicacionController();
-        $objU->addLocation($request->marker,$newId);
+        $objU->addLocation($r->marker,$newId);
+        return back();
+    }
+    public function destroyRest($idRest) {
+        $location = new Ubicacion();
+        $location->deleteByRest($idRest);
+        Restaurante::find($idRest)->delete();
+        return back();
     }
 }

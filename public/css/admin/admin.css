@@ -87,7 +87,6 @@ p select[name="tipoPlato"] {
 .btnAdd .material-icons-round {
   color: #7cb342;
   font-size: 6rem;
-  cursor: pointer;
   transition: all .5s;
 }
 .btnAdd .material-icons-round:hover {
@@ -349,9 +348,30 @@ address { font-size: 1rem; }
   max-height: 21vh;
   border-radius: 0;
 }
+.rows td .material-icons-round {
+  left: 3.5rem;
+}
 .detallePlatos {
     height: 43vh;
     margin-top: 1rem;
+}
+.rows input, .detallePlatos input {
+  width: 80%;
+  text-align: center;
+}
+.detallePlatos .selected {
+  background: transparent;
+}
+.detallePlatos td .material-icons-round,
+.rows td .material-icons-round {
+  position: absolute;
+  top: .7rem;
+  color: var(--myRed);
+  font-size: 2.5rem;
+  z-index: 1;
+}
+.detallePlatos td .material-icons-round {
+  left: -3rem;
 }
 .scrollBar {
   background: transparent;
@@ -372,6 +392,19 @@ address { font-size: 1rem; }
 }
 .btnGreen:hover {
   background-color: green;
+}
+.btnDelete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--myRed);
+}
+.btnDelete .material-icons-round {
+  color: white;
+  font-size: 2.5rem;
 }
 ::-webkit-scrollbar-thumb {
   background-color: white;

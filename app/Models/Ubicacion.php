@@ -10,4 +10,8 @@ class Ubicacion extends Model
     use HasFactory;
     protected $table = 'ubicacion';
     public $timestamps = false;
+
+    public function deleteByRest($idRest) {
+        Ubicacion::where('idRest',$idRest)->delete();
+    }
 }

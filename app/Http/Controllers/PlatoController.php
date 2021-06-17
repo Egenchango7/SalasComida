@@ -16,29 +16,37 @@ class PlatoController extends Controller
         $platos = $objP->getPlatosByRest($idRest);
         $result = array();
         foreach ($platos as $p) {
-            if ($p['idTipoPlato'] == $tipo) {
+            if ($p['idTipoPlato'] == $tipo or $tipo == 0) {
                 array_push($result,$p);
             }    
         }
         echo json_encode($result);
     }
-    public function addPlato(Request $request){
-        $lastId = Plato::latest('id')->first()->id;
-        $newId = (intval(substr($lastId, 1)) + 1);
-        $newId = 'P'.str_pad($newId, 3, "0", STR_PAD_LEFT);
-
+    public function addPlato(Request $r) {
+        $newId = $this->getLastId('plato');
         $plato = new Plato();
         $plato->id = $newId;
-        $plato->nombre = $request->nombre;
-        $plato->idTipoPlato = $request->tipoPlato;
+        $plato->nombre = $r->nombre;
+        $plato->idTipoPlato = $r->tipoPlato;
         $plato->save();
-        
-        $plato->insertPrecioByRest($newId,$request);
-
-        $response = array(
-            'tipoPlato' => $request->tipoPlato,
-            'idRest' => $request->idRest
-        );
-        echo json_encode($response);
+        $plato->insertPrecioByRest($newId,$r);
+        return $r;
+    }
+    public function updatePlato(Request $r) {
+        for ($i = 0; $i < count($r->txtEdit); $i += 3) {
+            $id = $r->txtEdit[$i+1];
+            $plato = Plato::find($id);
+            $plato->nombre = $r->txtEdit[$i];
+            $plato->save();
+            $precio = str_replace('S/','',$r->txtEdit[$i+2]);
+            $objP = new Plato();
+            $objP->updatePrecioByPlato($id,$precio);
+        }
+        return $r;
+    }
+    public function destroyPlato($idPlato){
+        Plato::deleteReferences($idPlato);
+        Plato::find($idPlato)->delete();
+        return back();
     }
 }
