@@ -4,7 +4,8 @@
 </head>
 
 <body>
-
+    @include('layout/loader')
+    <div id="map"></div>
     <div id="mapaLogin">
         <img src="{{ asset('src/fondoMapaDifuminado.png') }}" alt="fondoLogin">
         <img src="{{ asset('src/markerDefaultBig.png') }}" alt="marker" id="marker">
@@ -17,7 +18,7 @@
     <div class="login-box">
         <div>
             <h3>Sitio Web de Ofertas de Alimentos</h3>
-            <form action="{{route('login')}}" method="post">
+            <form action="{{ route('login') }}" method="post">
                 @csrf
                 <label for="username">Username</label>
                 <input type="text" id="usuario" class="txt" name="username" required>
@@ -33,4 +34,5 @@
 
 </body>
 @include('layout/script')
+<script src="{{ asset('js/admin/login.js') }}"></script>
 </html>

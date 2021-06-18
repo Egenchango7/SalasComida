@@ -1,6 +1,7 @@
 @include('layout/head', ['titlePage' => 'Gestion de Salas de comida - SWOA'])
 @include('layout/headAdmin')
 </head>
+@include('layout/loader')
 
 <body>
     <img src="{{ asset('src/fondoDifuminado.png') }}" alt="fondoAdmin" id="fondoAdmin">

@@ -2,22 +2,7 @@
 @include('layout/headClient')
 </head>
 <body>
-    {{-- 
-    <div class="loader loader--style2" title="1">
-        <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-           width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
-            <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
-                <animateTransform attributeType="xml"
-                    attributeName="transform"
-                    type="rotate"
-                    from="0 25 25"
-                    to="360 25 25"
-                    dur="0.6s"
-                    repeatCount="indefinite"/>
-            </path>
-        </svg>
-    </div>
-    --}}
+    @include('layout/loader')
     <div id="map"></div>
     <div id="buscador" class="flotante shadowRight flex">
         <span class="material-icons-round">search</span>
@@ -33,8 +18,8 @@
                     <p><b>Dirección:</b> {{ $r['direccion'] }}</p>
                     <p><b>Teléfono:</b> {{ $r['telefono'] }}</p>
                     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-                    <a href="https://api.whatsapp.com/send?phone=51{{ $r['telefono'] }}&text=Quisiera realizar un pedido." class="float" target="_blank">
-                        <i class="fa fa-whatsapp my-float"></i>
+                    <a href="https://api.whatsapp.com/send?phone=51{{ $r['telefono'] }}&text=Quisiera realizar un pedido." class="whatsapp" target="_blank">
+                        <i class="fa fa-whatsapp"></i>
                     </a>
                 </div>
                 {{-- @include('tables/tableRest', ['rest' => $r]) --}}

@@ -109,6 +109,34 @@ button {
 div .listDiv:last-child {
     margin-bottom: .5rem;
 }
+.loading {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    transition: all .7s;
+    z-index: 2;
+}
+.loading img {
+    position: absolute;
+    top: 25%;
+    width: 15%;
+    height: auto;
+    animation: 2s showLogo;
+}
+@keyframes showLogo {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.loading svg {
+    padding-top: 10%;
+    width: 15%;
+    height: 15%;
+}
 ::-webkit-scrollbar {
     width: 6px;
 }

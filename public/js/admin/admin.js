@@ -146,3 +146,6 @@ const deleteRow = async (row) => {
 	}
 	var sidebarVisible = false;
 	var currentPageID = "#tm-section-1";
+$('#btnSalir').on('click', function () {
+	window.location = '/login';
+});

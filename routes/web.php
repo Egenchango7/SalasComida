@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', RestauranteController::class);
 Route::get('/locations', [UbicacionController::class, 'listLocations']);
-Route::get('/login', [LoginController::class]);
+Route::get('/login', LoginController::class)->name('viewLogin');
 Route::post('/login',[LoginController::class,'validacionAction'])->name('login');
 Route::get('/admin',[RestauranteController::class, 'adminView'])->name('admin');
 Route::get('/rest/{id}', [RestauranteController::class, 'getRestById']);

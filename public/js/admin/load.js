@@ -1,5 +1,5 @@
 	// Everything is loaded including images.
-    $(window).on("load", function(){
+    $(window).on("load", async function(){
 
         // Render the page on modern browser only.
         if(renderPage) {

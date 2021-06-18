@@ -1,5 +1,5 @@
 function initMap() {
-    myMap.myLocation().then((pos) => {
+    myMap.myLocation().then(async (pos) => {
         let myLatLng = { lat: pos.latitude, lng: pos.longitude };
         let zoom =  isMediumWindow ? 17 : 16;
         let map = new google.maps.Map(document.getElementById("map"), {
@@ -16,7 +16,7 @@ function initMap() {
             ]
         });
         myMap.map = map;
-        $.ajax({
+        await $.ajax({
             url: "/locations",
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (response) {
@@ -40,5 +40,9 @@ function initMap() {
                 });
             }
         });
+        setTimeout(() => {
+            $('.loading').css('opacity', 0);
+            $('.loading').css('z-index', -1);
+        }, 1250);
     });
 }
