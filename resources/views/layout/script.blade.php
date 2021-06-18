@@ -3,7 +3,7 @@
 <?=
 '<script>
     const rests = '.json_encode(@$rests).';
-    const hostUrl = "'.url('/').'";
+    const hostUrl = "'.secure_url('/').'";
 </script>';
 ?>
 <script src="{{asset('js/app.js')}}"></script>
