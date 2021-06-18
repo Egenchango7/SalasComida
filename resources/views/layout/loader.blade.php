@@ -2,7 +2,7 @@
     <div class="circleLogo flex">
         <img src="{{ asset('src/SWOA_White.png') }}" alt="logoLoad">
     </div>
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"
         style="margin: auto; background: white; display: block; shape-rendering: auto;" viewBox="0 0 100 100"
         preserveAspectRatio="xMidYMid">
         <circle cx="84" cy="50" r="10" fill="#ea4335">
