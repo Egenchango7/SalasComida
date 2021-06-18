@@ -8,28 +8,6 @@ p {
 }
 p:last-child { margin-bottom: 0; }
 
-input[type="submit"] {
-display: none;
-}
-
-input[type="button"] {
-  background-color: #7cb342;
-  color: white;
-  font-size: 1.3rem;
-  position: relative;
-  left: 250px;
-  margin-top: 10px;
-  border-radius: 1.5rem;
-  border: 0;
-  height: 3.3rem;
-  padding: .5rem 1rem;
-  transition: all .5s;
-  cursor: pointer;
-}
-input[type="button"]:hover {
-  cursor: pointer;
-  background-color: green;
-}
 td input[type="password"] {
   width: 90%;
 }
@@ -108,7 +86,7 @@ p select[name="tipoPlato"] {
 #logo .logo {
     width: 18%;
     position: absolute;
-    top: 0;
+    top: 5%;
     left: 3%;
   }
 .sidebar {
@@ -349,7 +327,7 @@ address { font-size: 1rem; }
   border-radius: 0;
 }
 .rows td .material-icons-round {
-  left: 3.5rem;
+  left: 4rem;
 }
 .detallePlatos {
     height: 43vh;
@@ -376,23 +354,6 @@ address { font-size: 1rem; }
 .scrollBar {
   background: transparent;
 }
-.btnGreen {
-  background-color: #7cb342;
-  color: white;
-  font-size: 1.3rem;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  border-radius: 1.5rem;
-  border: 0;
-  height: 3.3rem;
-  padding: .5rem 1rem;
-  transition: all .5s;
-  cursor: pointer;
-}
-.btnGreen:hover {
-  background-color: green;
-}
 .btnDelete {
   position: absolute;
   top: 0;
@@ -405,10 +366,6 @@ address { font-size: 1rem; }
 .btnDelete .material-icons-round {
   color: white;
   font-size: 2.5rem;
-}
-.loading svg {
-  width: 35%;
-  height: 35%;
 }
 ::-webkit-scrollbar-thumb {
   background-color: white;
@@ -433,6 +390,12 @@ address { font-size: 1rem; }
   z-index: 1;
   border-radius: 1.5rem;
   outline: none;
+  background-color: var(--myGreen);
+  color: white;
+  font-weight: 100;
+}
+#btnSalir h3 {
+  font-weight: 100;
 }
 #permisos .material-icons-round {
   top: .7rem;

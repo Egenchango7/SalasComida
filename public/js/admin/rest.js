@@ -1,5 +1,5 @@
 // VAR
-let isEdit = isNewMarker = false;
+let isEdit = isNewMarker = isChangeImg = false;
 // FUNCTIONS
 const saveNewRest = () => {
     //ADD VALIDATION...
@@ -43,6 +43,7 @@ $('#map + .btnRed').on('click', function (e) {
     isNewMarker = !isNewMarker;
 });
 $('#changeImg').on('change', function () {
+    isChangeImg = true;
     let img = $(this)[0].files[0],
         src = URL.createObjectURL(img);
     $(`${idSection} img`)[0].src = src;

@@ -24,7 +24,7 @@ const fillInfoRest = (rest) => {
     $('.dirRest').val(rest.direccion);
     // let srcRest = $('#divImgRest img').attr('src');
     // srcRest = srcRest.substr(0,srcRest.indexOf('img/') + 4) + rest.foto;
-    $('.srcImgRest').attr('src',`img/${rest.foto}`);
+    if (!isChangeImg) $('.srcImgRest').attr('src',`img/${rest.foto}`);
     let icon = $('#permisos').find('.material-icons-round');
     icon.css('color', iconPermisos[(rest.permisos ? 1 : 0)].color);
     icon.text(iconPermisos[(rest.permisos ? 1 : 0)].text);
@@ -51,4 +51,14 @@ $('#btnHideDetalle').on('click', function (e) {
     setTimeout(() => {
         $('.fondoModal').css('bottom', '-100vh');
     }, 200);
+});
+let autoComplete = rests.map(r => { return r.nombre; });
+$('#txtBuscador').autocomplete({
+    source: autoComplete
+});
+$('.ui-menu').on('click', async function () {
+    let nomRest = $('#txtBuscador').val(),
+        rest = await rests.find(r => r.nombre == nomRest),
+        idLocation = await myMap.markers.find(u => u.idRest == rest.id).id; 
+        showDivRest(idLocation,rest);
 });

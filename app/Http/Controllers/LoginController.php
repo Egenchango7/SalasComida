@@ -8,16 +8,18 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     public function __invoke() {
+        session(['access' => false]);
         return view('login');
     }
-    public function validacionAction(Request $request) {
+    public function validacionAction(Request $r) {
+        session('access',false);
         $login = new Login();
-        $login->username = $request->username;
-        $login->pwd = $request->pwd;
-
-        $login->Validation($login);
-
-        return redirect()->route('admin',$login);
+        $user = $login->Validation($r->username, $r->pwd);
+        if (count($user) == 0) {
+            return 'error';
+        }
+        session(['access' => true]);
+        return $user;
     }
     public function addUsuario(Request $request) {
         $newId = $this->getLastId('usuario');

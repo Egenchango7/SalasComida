@@ -1,25 +1,15 @@
-div:not(.login-box) {
+body > div:not(.login-box) {
     border-radius: 0;
 }
 img {
     height: 100vh;
 }
-input[type="submit"] {
-    border: none;
-    background-color: #7cb342;
-    color: white;
+input {
     font-size: 1.2rem;
-    border-radius: 1.2rem;
-    margin-top: 0.7rem;
-}
-input[type="submit"]:hover {
-    cursor: pointer;
-    background-color: green;
 }
 .login-box {
     width: 22%;
     height: 50vh;
-    /* background: rgba(236, 229, 229, 0.582); */
     background: rgba(255, 255, 255, 0.5);
     position: absolute;
     box-sizing: border-box;
@@ -32,7 +22,7 @@ input[type="submit"]:hover {
     right: 4rem;
 }
 .login-box h3 {
-    padding-bottom: 1.5rem;
+    padding-bottom: 2rem;
     text-align: center;
 }
 .login-box label {
@@ -46,6 +36,12 @@ input[type="submit"]:hover {
 .txt {
     background: transparent;
     font-size: 1.1rem;
+}
+#login {
+    height: 3rem; 
+    width: 100%; 
+    margin-top: 1rem; 
+    position: relative;
 }
 #divRight {
     width: 73%;

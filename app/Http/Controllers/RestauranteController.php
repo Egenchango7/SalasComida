@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class RestauranteController extends Controller
 {
-    public function __invoke() {
+    public function __invoke(Request $request) {
         $rests = Restaurante::all();
         $objO = new Menu();
         $ofertas = $objO->getMenusOferta();
@@ -21,11 +21,16 @@ class RestauranteController extends Controller
     public function getRestById($idRest) {
         return Restaurante::find($idRest);
     }
-    public function adminView(Login $login) {
-        $rests = Restaurante::all();
-        $users = Login::all();
-        $tiposPlato = Plato::getTiposPlato();
-        return view('admin', compact('rests','users','tiposPlato','login'));
+    public function adminView() {
+        session('access',false);
+        if (session('access')) { 
+            $rests = Restaurante::all();
+            $users = Login::all();
+            $tiposPlato = Plato::getTiposPlato();
+            return view('admin', compact('rests','users','tiposPlato'));
+        } else {
+            return view('login');
+        }
     }
     public function updateRest(Request $r) {
         $rest = Restaurante::find($r->listRest);

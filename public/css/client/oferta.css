@@ -1,3 +1,7 @@
+.btnGreen {
+    height: min-content;
+    /* padding: 0 !important; */
+}
 #divOfertas {
     position: absolute;
     width: 24%;
@@ -5,10 +9,12 @@
     top: 25vh;
     height: 65vh;
     transition: 1s;
-    background: var(--greenGradient);
+    background: var(--redGradient);
 }
 #divOfertas > h2 {
     margin: 1.8rem 0 1rem 1.8rem;
+    color: white;
+    font-weight: 100;
 }
 #divOfertas .scrollBar {
     display: none;

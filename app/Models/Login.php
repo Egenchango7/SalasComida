@@ -11,9 +11,10 @@ class Login extends Model
     protected $table = 'usuario';
     public $timestamps = false;
 
-    public function Validation(Login $usuario){
-        $user = Login::where('username',$usuario->username)
-                        ->where('password',$usuario->pwd);
-         return $user;               
+    public function Validation($usuario, $password){
+        $user = Login::where('username',$usuario)
+                        ->where('pwd',$password)
+                        ->get();
+        return $user;
     }
 }

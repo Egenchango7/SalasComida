@@ -11,4 +11,9 @@ class Restaurante extends Model
     protected $table = 'restaurante';
     public $timestamps = false;
 
+    public function scopeSearch($name){
+        $name = Restaurante::where('nombre','LIKE','%'.$name.'%')->get();
+    }
 }
+
+   

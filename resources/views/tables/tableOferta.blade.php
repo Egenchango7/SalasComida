@@ -11,7 +11,7 @@
             <td></td>
         </tr>
         <tr>
-            <td><button class="btnRed" value="{{ $o['idRest'] }}-{{ $o['idTipoMenu'] }}">Ver más</button></td>
+            <td><button class="btnGreen" value="{{ $o['idRest'] }}-{{ $o['idTipoMenu'] }}">Ver más</button></td>
         </tr>
     </table>
 </div>

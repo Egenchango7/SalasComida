@@ -43,7 +43,7 @@ const updateInfo = (form) => {
 					Swal.fire({
 						title: 'Guardado',
 						icon: 'success',
-						timer: 500
+						timer: 1000
 					});
                 }
             });
@@ -106,8 +106,8 @@ const selectRow = (row) => {
         tds.map(i => {
             let td = $(tds[i]),
 				readOnly = i == 0 && div == 'rows' ? 'readonly' : '',
-                val = td.text(),
-                input = `<input type="text" name="txtEdit[]" ${readOnly} value="${val}">`;
+                val = td.text().replace('delete','');
+            let input = `<input type="text" name="txtEdit[]" ${readOnly} value="${val}">`;
 				btnDelete = td.find('.material-icons-round');
 			td.html(input);				
 			if (btnDelete.length > 0) {
@@ -121,7 +121,10 @@ const deleteRow = async (row) => {
 	let id;
 	if (indexSection > 2) {
 		let idRow = $(row).closest('tr').find('.idRow');
-		id = idRow.text();
+		id = idRow.find('input').val();
+		if (!id) {
+			id = idRow.text();
+		}
 	} else {
 		id = indexSection == 1
 				? $(`${idSection} select[name="listRest"]`).val()

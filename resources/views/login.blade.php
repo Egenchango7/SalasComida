@@ -18,15 +18,15 @@
     <div class="login-box">
         <div>
             <h3>Sitio Web de Ofertas de Alimentos</h3>
-            <form action="{{ route('login') }}" method="post">
+            <form name="loginAdmin" id="loginAdmin" action="{{ route('login') }}" method="post">
                 @csrf
                 <label for="username">Username</label>
-                <input type="text" id="usuario" class="txt" name="username" required>
+                <input type="text" id="usuario" class="user" name="username" required>
 
                 <label for="password">Password</label>
-                <input type="password" id="passw" class="txt" name="pwd" required>
+                <input type="password" id="passw" class="pwd" name="pwd" required>
 
-                <input type="submit" value="Ingresar" id="login">
+                <button id="login" class="btnGreen">Ingresar</button>
 
             </form>
         </div>

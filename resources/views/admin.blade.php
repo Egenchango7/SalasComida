@@ -4,9 +4,8 @@
 @include('layout/loader')
 
 <body>
-    <img src="{{ asset('src/fondoDifuminado.png') }}" alt="fondoAdmin" id="fondoAdmin">
     <div id="logo">
-        <img src="{{ asset('src/logo2.png') }}" class="logo" alt="logo Image">
+        <img src="{{ asset('src/SWOA_White.png') }}" class="logo" alt="logo Image">
     </div>
     <!-- Page Content -->
     <div class="container-fluid tm-main">
@@ -38,7 +37,7 @@
                         </a>
                     </nav>
                 </div>
-                <button id="btnSalir" class="btnRed flex">
+                <button id="btnSalir" class="flex">
                     <span class="material-icons-round">arrow_back_ios</span>
                     <h3>Salir</h3>
                 </button>
