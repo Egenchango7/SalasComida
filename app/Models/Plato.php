@@ -13,7 +13,7 @@ class Plato extends Model
     public $timestamps = false;
 
     public function getPlatosByMenu($idMenu) {
-        $platos = Plato::join('menuPlato AS mp','mp.idPlato','=','plato.id')
+        $platos = Plato::join('menuplato AS mp','mp.idPlato','=','plato.id')
                         ->join('menu AS m', 'm.id','=','mp.idMenu')
                         ->where('mp.idMenu',$idMenu)
                         ->get();
@@ -23,7 +23,7 @@ class Plato extends Model
         return Plato::where('idTipoPlato',$tipo)->get();
     }
     public function getPlatosByRest($idRest) {
-        $platos = Plato::join('platoRest AS pr','pr.idPlato','=','plato.id')
+        $platos = Plato::join('platorest AS pr','pr.idPlato','=','plato.id')
                         ->where('pr.idRest',$idRest)
                         ->get();
         return $platos;
@@ -32,24 +32,24 @@ class Plato extends Model
         return DB::table('tipoPlato')->get();
     }  
     public function insertPrecioByRest($idPlato,$r) {
-        DB::table('platoRest')->insert([
+        DB::table('platorest')->insert([
             'idRest' => $r->listRest,
             'idPlato' => $idPlato,
             'precio' => $r->precio
         ]);
     }
     public function updatePrecioByPlato($id,$precio){
-        DB::table('platoRest')
+        DB::table('platorest')
             ->where('idPlato',$id)
             ->update([
                 'precio' => $precio
             ]);
     }
     public static function deleteReferences($idPlato) {
-        DB::table('platoRest')
+        DB::table('platorest')
             ->where('idPlato',$idPlato)
             ->delete();
-        DB::table('menuPlato')
+        DB::table('menuplato')
             ->where('idPlato',$idPlato)
             ->delete();
     }
