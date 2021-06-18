@@ -136,7 +136,7 @@ const deleteRow = async (row) => {
 		3: 'plato',
 		4: 'user'
 	},
-	url = `${sections[indexSection]}/delete/${id.substr(0,4)}`;
+	url = `${hostUrl}/${sections[indexSection]}/delete/${id.substr(0,4)}`;
 	window.location = url;
 }
 // EVENTS
@@ -150,5 +150,5 @@ const deleteRow = async (row) => {
 	var sidebarVisible = false;
 	var currentPageID = "#tm-section-1";
 $('#btnSalir').on('click', function () {
-	window.location = '/login';
+	window.location = $(this).val();
 });

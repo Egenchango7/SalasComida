@@ -37,7 +37,7 @@
                         </a>
                     </nav>
                 </div>
-                <button id="btnSalir" class="flex">
+                <button id="btnSalir" class="flex" value="{{ route('login')}}">
                     <span class="material-icons-round">arrow_back_ios</span>
                     <h3>Salir</h3>
                 </button>

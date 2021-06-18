@@ -1,6 +1,6 @@
 // EVENTS
 $('#marker').on('click', function () {
-    window.location = '/';
+    window.location = hostUrl;
 });
 $("#loginAdmin").on('submit', function (e) {
     e.preventDefault();
@@ -22,7 +22,7 @@ $("#loginAdmin").on('submit', function (e) {
                     showConfirmButton: false
                 });
             } else {
-                window.location = `/admin`;
+                window.location = `${hostUrl}/admin`;
             }
         }
     });

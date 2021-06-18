@@ -52,13 +52,15 @@ $('#btnHideDetalle').on('click', function (e) {
         $('.fondoModal').css('bottom', '-100vh');
     }, 200);
 });
-let autoComplete = rests.map(r => { return r.nombre; });
-$('#txtBuscador').autocomplete({
-    source: autoComplete
-});
-$('.ui-menu').on('click', async function () {
-    let nomRest = $('#txtBuscador').val(),
-        rest = await rests.find(r => r.nombre == nomRest),
-        idLocation = await myMap.markers.find(u => u.idRest == rest.id).id; 
-        showDivRest(idLocation,rest);
-});
+if (rests) {
+    let autoComplete = rests.map(r => { return r.nombre; });
+    $('#txtBuscador').autocomplete({
+        source: autoComplete
+    });
+    $('.ui-menu').on('click', async function () {
+        let nomRest = $('#txtBuscador').val(),
+            rest = await rests.find(r => r.nombre == nomRest),
+            idLocation = await myMap.markers.find(u => u.idRest == rest.id).id; 
+            showDivRest(idLocation,rest);
+    });
+}
