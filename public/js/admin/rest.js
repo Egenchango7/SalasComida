@@ -42,7 +42,6 @@ $('#map + .btnRed').on('click', function (e) {
     }
     isNewMarker = !isNewMarker;
 });
-let isChangeImg = false;
 $('#changeImg').on('change', function () {
     isChangeImg = true;
     let img = $(this)[0].files[0],

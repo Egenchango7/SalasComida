@@ -1,3 +1,5 @@
+// VAR
+let isChangeImg = false;
 // FUNCTIONS
 const showDivRest = (idLocation,rest,tipo) => {
     $('#divRest').css('left', 0);
