@@ -5,10 +5,6 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PlatoController;
 use App\Http\Controllers\RestauranteController;
 use App\Http\Controllers\UbicacionController;
-use App\Http\Controllers\UserController;
-use App\Models\Login;
-use App\Models\Plato;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
