@@ -2,7 +2,7 @@ const fillTablePlatos = async (url, getData) => {
     return await $.ajax({
         url: url,
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        success: function (response) {
+        success: async function (response) {
             console.log(response);
             let jsonPlatos = JSON.parse(response), 
                 table = '';

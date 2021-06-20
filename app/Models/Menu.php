@@ -10,6 +10,7 @@ class Menu extends Model
 {
     use HasFactory;
     protected $table = 'menu';
+    protected $keyType = 'string';
     public $timestamps = false;
 
     public function getMenusByRest($idRest) {
