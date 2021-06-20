@@ -59,7 +59,7 @@ const selectIdPlato = (select) => {
 const refreshMenu = async (idRest, tipoMenu) => {
     await getTiposMenuByRest(idRest);
     let tm = tipoMenu != null ? tipoMenu : $(`${idSection} h2 .tipoMenu`).val();  
-    fillTableMenu(idRest,tm);
+    await fillTableMenu(idRest,tm);
     updateSrcPlatos(idRest);
     $(`#formNewMenu input`).val('');
     if (isEdit) {
