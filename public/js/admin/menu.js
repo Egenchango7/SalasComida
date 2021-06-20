@@ -27,7 +27,7 @@ const changePlatoMenu = async (icon) => {
 }
 const updateSrcPlatos = async (idRest) => {
     let data = await fillTablePlatos(`/platos/tipo/0/rest/${idRest}`,true);
-    platosMenu.src = JSON.parse(data);
+    platosMenu.src = data;
 	platosMenu.new = [];
     $('.newPlatoTipo1, .newPlatoTipo2').html('');
     $('.tipoPlatoMenu').map(t => {
