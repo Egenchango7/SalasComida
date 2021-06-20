@@ -14,6 +14,7 @@ $("#loginAdmin").on('submit', function (e) {
         data: formData,
         processData: false,
         success: function (response) {
+            console.log(response);
             if (response == 'error') {
                 Swal.fire({
                     title: 'Credenciales incorrectas',

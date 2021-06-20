@@ -2,6 +2,7 @@ const updateTableUser = () => {
     $.ajax({
         url: "usuario/list",
         success: function (response) {
+            console.log(response);
             let jsonUser = JSON.parse(response);
             Rows = '';
             jsonUser.map((u)=>{

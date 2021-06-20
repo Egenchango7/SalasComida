@@ -21,6 +21,7 @@ const fillTableMenu = (idRest, tipoMenu, changeDayMenu) => {
         url: "/menus/rest/"+ idRest,
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         success: async function (response) {
+            console.log(response);
             let jsonMenus = JSON.parse(response),
                 selectedMenu = await jsonMenus.find(m => m.menu.idTipoMenu == Number(tipoMenu));
                 if (selectedMenu == null) return;
@@ -68,6 +69,7 @@ const getTiposMenuByRest = (idRest) => {
         url: "/tipos_menu/rest/" + idRest,
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         success: async function (response) {
+            console.log(response);
             let options = '',
                 jsonTiposMenu = JSON.parse(response);
             await jsonTiposMenu.map(tm => {

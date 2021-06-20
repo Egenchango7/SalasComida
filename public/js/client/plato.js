@@ -3,6 +3,7 @@ const fillTablePlatos = async (url, getData) => {
         url: url,
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         success: function (response) {
+            console.log(response);
             let jsonPlatos = JSON.parse(response), 
                 table = '';
             if (getData != null) return jsonPlatos;
