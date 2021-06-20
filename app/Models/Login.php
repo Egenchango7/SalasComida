@@ -9,7 +9,6 @@ class Login extends Model
 {
     use HasFactory;
     protected $table = 'usuario';
-    protected $keyType = 'string';
     public $timestamps = false;
 
     public function Validation($usuario, $password){

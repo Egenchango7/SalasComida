@@ -9,7 +9,6 @@ class Restaurante extends Model
 {
     use HasFactory;
     protected $table = 'restaurante';
-    protected $keyType = 'string';
     public $timestamps = false;
 
 }

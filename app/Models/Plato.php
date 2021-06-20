@@ -10,7 +10,6 @@ class Plato extends Model
 {
     use HasFactory;
     protected $table = 'plato';
-    protected $keyType = 'string';
     public $timestamps = false;
 
     public function getPlatosByMenu($idMenu) {
