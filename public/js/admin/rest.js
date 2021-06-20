@@ -1,5 +1,5 @@
 // VAR
-let isEdit = isNewMarker = false;
+let isNewMarker = false;
 // FUNCTIONS
 const saveNewRest = () => {
     //ADD VALIDATION...

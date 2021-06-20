@@ -17,21 +17,17 @@ class MenuController extends Controller
             $platos = $objP->getPlatosByMenu($m->idMenu);
             array_push($data,array('menu' => $m, 'platos' => $platos));
         }
-        echo json_encode($data);
+        return json_encode($data);
     }
     public function getOfertasDestacadas() {
         $obj = new Menu();
         $ofertas = $obj->getMenusOferta();
         return $ofertas;
     }
-    public function getTiposMenuByRest($idRest, $return = false) {
+    public function getTiposMenuByRest($idRest) {
         $objTM = new Menu();
         $tiposMenu = $objTM->getTiposMenuByRest($idRest);
-        if ($return) {
-            return $tiposMenu;
-        } else {
-            echo $tiposMenu;
-        }
+        return $tiposMenu;
     }
     public function updateMenu(Request $r) {
         $menu = new Menu();
@@ -39,7 +35,7 @@ class MenuController extends Controller
     }
     public function newMenu(Request $r) {
         $menu = new Menu();
-        $tiposMenu = $this->getTiposMenuByRest($r->listRest,true);
+        $tiposMenu = $this->getTiposMenuByRest($r->listRest);
         foreach ($tiposMenu as $tm) {
             if ($tm['idTipoMenu'] == $r->tipoMenu) $idMenu = $tm->idMenu;
         }

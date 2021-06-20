@@ -48,6 +48,4 @@ class LoginController extends Controller
         Login::find($id)->delete();
         return back();
     }
-
-
 }

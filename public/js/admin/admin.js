@@ -18,7 +18,6 @@ const updateInfo = (form) => {
                 data: formData,
                 processData: false,
                 success: function (data) {
-					console.log(data)
                     switch (indexSection) {
                         case 1: fillInfoRest(data); break;
                         case 2: 

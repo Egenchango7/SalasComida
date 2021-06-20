@@ -20,7 +20,6 @@ function initMap() {
             url: "/locations",
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (response) {
-                console.log(response);
                 let jsonLocations = JSON.parse(response);
                 jsonLocations.map((location) => {
                     let rest = location.rest,

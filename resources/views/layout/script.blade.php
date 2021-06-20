@@ -3,7 +3,7 @@
 <?=
 '<script>
     const rests = '.json_encode(@$rests).';
-    const hostUrl = "'.secure_url('/').'";
+    const hostUrl = "'.url('/').'";
 </script>';
 ?>
 <script src="{{asset('js/app.js')}}"></script>
@@ -15,6 +15,3 @@
 <script src="{{asset('js/client/plato.js')}}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnmDwzHSfJwE3w4HQC5YXkyVOnQxC6mHM&callback=initMap"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    console.log(myMap);
-</script>

@@ -9,7 +9,7 @@ class PlatoController extends Controller
 {
     public function getPlatosByTipo($tipo) {
         $platos = new Plato();
-        echo $platos->getPlatosByTipo($tipo);
+        return $platos->getPlatosByTipo($tipo);
     }
     public function getPlatosByTipoAndRest($tipo,$idRest) {
         $objP = new Plato();
@@ -20,7 +20,7 @@ class PlatoController extends Controller
                 array_push($result,$p);
             }    
         }
-        echo json_encode($result);
+        return json_encode($result);
     }
     public function addPlato(Request $r) {
         $newId = $this->getLastId('plato');
