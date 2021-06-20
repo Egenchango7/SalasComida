@@ -12,7 +12,7 @@ const showDetalle = async (numDetalle, idRest, tipoMenu) => {
         fillTablePlatos(url);
     } else {
         await getTiposMenuByRest(idRest);
-        fillTableMenu(idRest, tipoMenu, false);
+        fillTableMenu(idRest, tipoMenu);
     }
     $('.fondoModal').css('bottom', 0);
     $('#' + detalles[numDetalle].div).css('display','block');

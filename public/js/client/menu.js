@@ -29,8 +29,8 @@ const fillTableMenu = (idRest, tipoMenu, changeDayMenu) => {
                 precioReducido = m.precioReducido == 0 ? m.precio : m.precioReducido,
                 platos = selectedMenu.platos,
                 notDayMenu = ':not(#infoRest',
-                divMenu = '.divMenu table' + (!changeDayMenu ? `${notDayMenu} table)` : ''),
-                precioMenu = ".precioMenu h2" + (!changeDayMenu ? `${notDayMenu} .precioMenu)` : ''); 
+                divMenu = '.divMenu table' + (changeDayMenu == null ? `${notDayMenu} table)` : ''),
+                precioMenu = ".precioMenu h2" + (changeDayMenu == null ? `${notDayMenu} .precioMenu h2)` : '');
             $(precioMenu).text("S/ " + precioReducido.toFixed(2));
             $(".precioNormal h2").text("Normal: S/" + m.precio.toFixed(2));
             $('h2 .tipoMenu').val(tipoMenu);
@@ -84,7 +84,7 @@ $("h2 .tipoMenu").on("change", function () {
     let tipoMenu = $(this).val(),
         rest = myMap.restSelected,
         idRest = !rest ? $(this).closest('section').find('select[name="listRest"]').val() : rest.id;
-    fillTableMenu(idRest,tipoMenu,false);
+    fillTableMenu(idRest,tipoMenu);
     if (isEdit) {
         toggleEditMode(isEdit)
     }
