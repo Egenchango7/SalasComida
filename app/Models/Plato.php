@@ -29,7 +29,7 @@ class Plato extends Model
         return $platos;
     }
     public static function getTiposPlato() {
-        return DB::table('tipoPlato')->get();
+        return DB::table('tipoplato')->get();
     }  
     public function insertPrecioByRest($idPlato,$r) {
         DB::table('platorest')->insert([

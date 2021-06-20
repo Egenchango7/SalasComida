@@ -20,10 +20,10 @@ const fillTableMenu = (idRest, tipoMenu, changeDayMenu) => {
     $.ajax({
         url: "/menus/rest/"+ idRest,
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        success: function (response) {
+        success: async function (response) {
             let jsonMenus = JSON.parse(response),
-                selectedMenu = jsonMenus.find(m => m.menu.idTipoMenu == Number(tipoMenu));
-                if (!selectedMenu) return;
+                selectedMenu = await jsonMenus.find(m => m.menu.idTipoMenu == Number(tipoMenu));
+                if (selectedMenu == null) return;
             let m = selectedMenu.menu,
                 precioReducido = m.precioReducido == 0 ? m.precio : m.precioReducido,
                 platos = selectedMenu.platos,
@@ -63,14 +63,14 @@ const fillTableMenu = (idRest, tipoMenu, changeDayMenu) => {
         },
     });
 }
-const getTiposMenuByRest = async (idRest) => {
-    await $.ajax({
+const getTiposMenuByRest = (idRest) => {
+    $.ajax({
         url: "/tipos_menu/rest/" + idRest,
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-        success: function (response) {
+        success: async function (response) {
             let options = '',
                 jsonTiposMenu = JSON.parse(response);
-            jsonTiposMenu.map(tm => {
+            await jsonTiposMenu.map(tm => {
                 options += `<option value="${tm.idTipoMenu}">${tm.nombre}</option>`;
             })
             $(".tipoMenu").html(options);

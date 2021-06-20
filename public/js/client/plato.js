@@ -5,8 +5,8 @@ const fillTablePlatos = async (url, getData) => {
         success: function (response) {
             let jsonPlatos = JSON.parse(response), 
                 table = '';
-            if (getData) return jsonPlatos;
-            jsonPlatos.map((p) => {
+            if (getData != null) return jsonPlatos;
+            await jsonPlatos.map((p) => {
                 table += '<tr onclick="selectRow(this)">' +
                             `<td class="itemMenu">${p.nombre}</td>` +
                             `<td class="idRow" hidden>${p.idPlato}</td>` +

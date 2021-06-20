@@ -1,5 +1,5 @@
 // FUNCTIONS
-const showDetalle = (numDetalle, idRest, tipoMenu) => {
+const showDetalle = async (numDetalle, idRest, tipoMenu) => {
     let detalles = {
         1: { div: 'detalleMenu', text: 'Ver detalle', icon: 'menu_book' },
         2: { div: 'detallePlatos', text: 'Platos a la carta', icon: 'dinner_dining' },
@@ -11,7 +11,7 @@ const showDetalle = (numDetalle, idRest, tipoMenu) => {
         let url = `/platos/tipo/${Number(numDetalle) + 1}/rest/${idRest}`;
         fillTablePlatos(url);
     } else {
-        getTiposMenuByRest(idRest);
+        await getTiposMenuByRest(idRest);
         fillTableMenu(idRest, tipoMenu, false);
     }
     $('.fondoModal').css('bottom', 0);
